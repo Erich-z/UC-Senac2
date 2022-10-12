@@ -1,0 +1,25 @@
+main{
+   
+    .container{
+        .input-group{
+            border-radius: 10rem !important;
+        }
+       .card{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+       justify-content: center;
+       margin-bottom: 1rem;
+       .card-text{
+        p{
+            font-weight: 700;
+        }
+       }
+       .menu{
+        z-index: 10000;
+        position: fixed;
+       }
+    }  
+    }
+   
+}
