@@ -1,17 +1,86 @@
-main .container .input-group {
+body .login-page {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body .logo-text {
+  color: #1c1c1c;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+body .logo {
+  padding: 0 2rem;
+}
+body .login .eye-icon {
+  position: absolute;
+  top: 0.7rem;
+  right: 1rem;
+}
+body .login .form-outline .form-notch {
+  display: none;
+}
+body .login input {
+  background-color: #D9D9D9 !important;
+}
+body .footer-cad {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+body main .buttons-login {
+  position: relative;
+}
+body main .buttons-login .enter-button {
+  font-size: 1rem;
+}
+body main .buttons-login button {
+  font-weight: 700;
+}
+body main .buttons-login .fab {
+  position: absolute;
+  left: 0.5rem;
+  margin: -4px 0rem;
+  font-size: 1.5rem;
+}
+body main .or {
+  position: relative;
+}
+body main .or::before {
+  position: absolute;
+  content: "";
+  right: 1vw;
+  width: 44%;
+  top: 50%;
+  height: 1px;
+  color: #000;
+  background: #1c1c1c;
+}
+body main .or::after {
+  position: absolute;
+  content: "";
+  left: 1vw;
+  width: 44%;
+  top: 50%;
+  height: 1px;
+  color: #000;
+  background: #1c1c1c;
+}
+body main .container .input-group {
   border-radius: 10rem !important;
 }
-main .container .card {
+body main .container .card {
   display: flex;
   align-items: center;
   margin: 0 auto;
   justify-content: center;
   margin-bottom: 1rem;
 }
-main .container .card .card-text p {
+body main .container .card .card-text p {
   font-weight: 700;
 }
-main .container .card .menu {
+body main .container .card .menu {
   z-index: 10000;
   position: fixed;
 }/*# sourceMappingURL=style.css.map */
