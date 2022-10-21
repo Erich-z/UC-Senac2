@@ -27,7 +27,7 @@
       <div class="logo">
         <img src="../img/preto-pessoa.png" class="img-fluid" alt="" />
       </div>
-      <form action="#" method="post">
+      <form action="#" method="post" class="needs-validation" novalidate>
        <div class="login d-grid gap-2">
         <div class="form-outline">
           <input
@@ -36,6 +36,7 @@
             placeholder="Nome Completo"
             required
           />
+          <div class="invalid-feedback ms-2">Por favor, insira seu nome completo</div>
         </div>
         <div class="form-outline">
           <input
@@ -45,27 +46,31 @@
             placeholder="Email"
             required
           />
+          <div class="invalid-feedback ms-2">Por favor, insira seu email</div>
         </div>
 
         <div class="form-outline">
           <input
             type="password"
             id="formPassword"
-            class="form-control rounded-pill"
+            class="form-control rounded-pill "
             placeholder="senha"
             required
           />
+          <div class="invalid-feedback ms-2">Por favor, insira sua senha</div>
           <i class="fas eye-icon fa-eye-slash"></i>
         </div>
         <div class="form-outline">
           <input
             type="password"
             id="formPassword"
-            class="form-control rounded-pill"
+            class="form-control rounded-pill "
             placeholder="confirme sua senha"
             required
           />
+          <div class="invalid-feedback ms-2">Por favor, confirme sua senha</div>
         </div>
+        
       </div>
     
       <div class="d-grid gap-2 buttons-login pt-2">
@@ -75,7 +80,7 @@
       </div>
       </form>
       <div class="mt-3 text-center">
-        <p class="m-0">Já possui conta?<a href="./login.html"> Entrar</a></p>
+        <p class="m-0">Já possui conta? <a href="./login.html">Entrar</a></p>
       </div>
 
       <script

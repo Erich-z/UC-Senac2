@@ -25,6 +25,10 @@ body .login .eye-icon {
 body .login .form-outline .form-notch {
   display: none;
 }
+body .login .invalid-feedback {
+  margin-top: -1rem;
+  position: relative;
+}
 body .login input {
   background-color: #D9D9D9 !important;
 }
