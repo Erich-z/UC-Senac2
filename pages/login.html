@@ -27,42 +27,44 @@
       <div class="logo">
         <img src="../img/preto-pessoa.png" class="img-fluid" alt="" />
       </div>
-      <div class="login d-grid gap-2">
-        <div class="form-outline">
-          <input
-            type="text"
-            id="formEmail"
-            class="form-control rounded-pill"
-            placeholder="Email"
-            required
-          />
+      <form action="#" method="post">
+        <div class="login d-grid gap-2">
+          <div class="form-outline">
+            <input
+              type="text"
+              id="formEmail"
+              class="form-control rounded-pill"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form-outline">
+            <input
+              type="password"
+              id="formPassword"
+              class="form-control rounded-pill"
+              placeholder="senha"
+              required
+            />
+            <i class="fas eye-icon fa-eye-slash"></i>
+          </div>
         </div>
-        <div class="form-outline">
-          <input
-            type="password"
-            id="formPassword"
-            class="form-control rounded-pill"
-            placeholder="senha"
-            required
-          />
-          <i class="fas eye-icon fa-eye-slash"></i>
+        <div class="or text-center py-3">Ou</div>
+        <div class="d-grid  gap-2 buttons-login">
+          <button type="button" class="btn btn-primary btn-rounded">
+            <i class="fab fa-facebook"></i>Continue com o Facebook
+          </button>
+          <button type="button" class="btn btn-danger btn-rounded">
+            <i class="fab fa-google"></i>Continue com o Google
+          </button>
+  
+          <button type="submit" class="btn btn-primary enter-button mt-3">
+            Entrar
+          </button>
         </div>
-      </div>
-      <div class="or text-center py-3">Ou</div>
-      <div class="d-grid  gap-2 buttons-login">
-        <button type="button" class="btn btn-primary btn-rounded">
-          <i class="fab fa-facebook"></i>Continue com o Facebook
-        </button>
-        <button type="button" class="btn btn-danger btn-rounded">
-          <i class="fab fa-google"></i>Continue com o Google
-        </button>
-
-        <button type="button" class="btn btn-primary enter-button mt-3">
-          Entrar
-        </button>
-      </div>
+      </form>
       <div class="mt-3 text-center">
-        <p class="m-0">Não possui conta?<a href="#"> Criar onta</a></p>
+        <p class="m-0">Não possui conta?<a href="./sign-in.html"> Criar onta</a></p>
         <a href="#" class="">Esqueci minha senha</a>
       </div>
 
