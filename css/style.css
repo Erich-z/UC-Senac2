@@ -1,8 +1,13 @@
 body .login-page {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+@media (min-width: 1200px) {
+  body .login-page {
+    width: 500px !important;
+  }
 }
 body .logo-text {
   color: #1c1c1c;
@@ -22,12 +27,6 @@ body .login .form-outline .form-notch {
 }
 body .login input {
   background-color: #D9D9D9 !important;
-}
-body .footer-cad {
-  position: absolute;
-  bottom: 1rem;
-  width: 100%;
-  margin: 0 auto;
 }
 body main .buttons-login {
   position: relative;
@@ -55,7 +54,12 @@ body main .or::before {
   top: 50%;
   height: 1px;
   color: #000;
-  background: #1c1c1c;
+  background: #ccc;
+}
+@media (min-width: 1200px) {
+  body main .or::before {
+    width: 42% !important;
+  }
 }
 body main .or::after {
   position: absolute;
@@ -65,7 +69,12 @@ body main .or::after {
   top: 50%;
   height: 1px;
   color: #000;
-  background: #1c1c1c;
+  background: #ccc;
+}
+@media (min-width: 1200px) {
+  body main .or::after {
+    width: 42% !important;
+  }
 }
 body main .container .input-group {
   border-radius: 10rem !important;

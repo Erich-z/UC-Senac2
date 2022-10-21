@@ -23,11 +23,19 @@
   </head>
   <body>
     <main class="container login-page">
-      <h1 class="text-center logo-text">InHouse</h1>
+      <h1 class="text-center logo-text">Bem vindo, InHouse</h1>
       <div class="logo">
         <img src="../img/preto-pessoa.png" class="img-fluid" alt="" />
       </div>
       <div class="login d-grid gap-2">
+       <div class="form-outline">
+        <input
+          type="text"
+          class="form-control rounded-pill"
+          placeholder="Nome Completo"
+          required
+        />
+      </div>
         <div class="form-outline">
           <input
             type="text"
@@ -37,6 +45,7 @@
             required
           />
         </div>
+
         <div class="form-outline">
           <input
             type="password"
@@ -47,23 +56,26 @@
           />
           <i class="fas eye-icon fa-eye-slash"></i>
         </div>
+        <div class="form-outline">
+         <input
+           type="password"
+           id="formPassword"
+           class="form-control rounded-pill"
+           placeholder="confirme sua senha"
+           required
+         />
+         
+       </div>
       </div>
       <div class="or text-center py-3">Ou</div>
-      <div class="d-grid  gap-2 buttons-login">
-        <button type="button" class="btn btn-primary btn-rounded">
-          <i class="fab fa-facebook"></i>Continue com o Facebook
-        </button>
-        <button type="button" class="btn btn-danger btn-rounded">
-          <i class="fab fa-google"></i>Continue com o Google
-        </button>
-
-        <button type="button" class="btn btn-primary enter-button mt-3">
+      <div class="d-grid gap-2 buttons-login">
+        <button type="button" class="btn btn-primary enter-button mx-5 mt-3">
           Entrar
         </button>
       </div>
       <div class="mt-3 text-center">
-        <p class="m-0">Não possui conta?<a href="#"> Criar onta</a></p>
-        <a href="#" class="">Esqueci minha senha</a>
+        <p class="m-0">Já possui conta?<a href="#"> Entrar</a></p>
+        
       </div>
 
       <script
