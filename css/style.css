@@ -1,3 +1,6 @@
+body {
+  font-family: "Inter", sans-serif;
+}
 body .login-page {
   height: 100vh;
   display: flex;
@@ -96,4 +99,39 @@ body main .container .card .card-text p {
 body main .container .card .menu {
   z-index: 10000;
   position: fixed;
+}
+
+.home-page img {
+  border-radius: 1.4rem;
+}
+.home-page .card {
+  border: none;
+}
+.home-page .card .card-body {
+  padding: 0 1rem;
+}
+.home-page .card .card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+.home-page .card .card-text {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.tab {
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #ccc;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  background: #fff;
+  width: 100%;
+  left: 0;
 }/*# sourceMappingURL=style.css.map */

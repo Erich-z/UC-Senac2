@@ -6,7 +6,12 @@ $xl: 1200px;
 $xxl: 1400px;
 
 
+
+
+
+
 body {
+    font-family: 'Inter', sans-serif;
     .login-page{
         height: 100vh;
         display: flex;
@@ -17,6 +22,7 @@ body {
                width:500px !important;
             }
         }
+    
         
     }
     .logo-text {
@@ -44,7 +50,6 @@ body {
         .invalid-feedback{
             margin-top: -1rem;
             position:relative;
-
         }
 
         input {
@@ -136,4 +141,45 @@ body {
         }
 
     }
+}
+
+.home-page{
+   
+    img{
+        border-radius: 1.4rem;
+    }
+    
+    .card{
+        
+        border: none;
+        .card-body{
+            padding:0 1rem;
+        }
+        .card-title{
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+   
+        }
+        .card-text{
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+        }
+    }
+}
+
+.tab{
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 1.5rem;
+    background: #fff;
+    width: 100%;
+    left: 0;
 }
