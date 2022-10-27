@@ -11,6 +11,15 @@ $xxl: 1400px;
 
 
 body {
+    .search-input{
+        border-right: none;
+        border-radius:10rem 0rem 0rem 10rem !important ;
+    }
+    .search-input-left{
+        border-left: none;
+        background-color: transparent;
+        border-radius:0rem 10rem 10rem 0rem !important ;
+    }
     font-family: 'Inter', sans-serif;
     .login-page{
         height: 100vh;
@@ -22,7 +31,7 @@ body {
                width:500px !important;
             }
         }
-    
+       
         
     }
     .logo-text {
@@ -55,6 +64,7 @@ body {
         input {
             background-color: $backgroundInput !important;
         }
+        
 
     }
 
@@ -153,7 +163,7 @@ body {
         
         border: none;
         .card-body{
-            padding:0 1rem;
+            padding:0 .6rem;
         }
         .card-title{
             font-size: 16px;
@@ -171,13 +181,14 @@ body {
 }
 
 .tab{
+    padding: .5rem 0;
     position: fixed;
     bottom: 0;
     border-top: 1px solid #ccc;
     z-index: 100;
     display: flex;
     justify-content: center;
-    gap: .5rem;
+    gap: 1.5rem;
     font-size: 1.5rem;
     background: #fff;
     width: 100%;

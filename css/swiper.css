@@ -1,3 +1,20 @@
 .swiper {
   width: 100%;
+  position: relative;
+}
+.swiper .swiper-slide .d-flex {
+  position: relative;
+}
+.swiper .swiper-slide .d-flex .fa-heart {
+  font-size: 1.5rem;
+  right: 1rem;
+  top: 1rem;
+  position: absolute;
+  color: #fff;
+}
+
+.heart-fav {
+  right: 1rem;
+  z-index: 1000;
+  position: absolute;
 }/*# sourceMappingURL=swiper.css.map */
