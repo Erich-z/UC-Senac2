@@ -69,6 +69,7 @@ body {
     }
 
     main {
+      
         .buttons-login {
             .enter-button {
                 font-size: 1rem;
@@ -136,6 +137,7 @@ body {
                 margin: 0 auto;
                 justify-content: center;
                 margin-bottom: 1rem;
+               
 
                 .card-text {
                     p {
@@ -154,14 +156,17 @@ body {
 }
 
 .home-page{
-   
+    
     img{
         border-radius: 1.4rem;
     }
     
     .card{
-        
+        &:last-child{
+            padding-bottom: 3rem;
+        }
         border: none;
+        
         .card-body{
             padding:0 .6rem;
         }

@@ -116,6 +116,9 @@ body main .container .card .menu {
 .home-page .card {
   border: none;
 }
+.home-page .card:last-child {
+  padding-bottom: 3rem;
+}
 .home-page .card .card-body {
   padding: 0 0.6rem;
 }

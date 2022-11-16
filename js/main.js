@@ -19,13 +19,22 @@
 
 
 const eyeIcon = document.querySelector('.eye-icon')
-const inputPassword = document.querySelector('input[type="password"]')
+const inputPassword = document.querySelectorAll('input[type="password"]')
 console.log(inputPassword)
 
-eyeIcon.addEventListener('click', () => {
-  eyeIcon.classList.toggle('fa-eye')
-  eyeIcon.classList.toggle('fa-eye-slash')
-  inputPassword.type == 'password' ? inputPassword.type = 'text' :  inputPassword.type = 'password';
-})
+
+  eyeIcon.addEventListener('click', () => {
+
+    eyeIcon.classList.toggle('fa-eye-slash')
+    eyeIcon.classList.toggle('fa-eye')
+      inputPassword.forEach((event) => {
+
+        
+        event.type == 'password' ? event.type = 'text' :  event.type = 'password';
+        console.log(event.type)
+      })
+
+  })
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields

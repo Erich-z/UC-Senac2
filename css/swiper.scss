@@ -1,7 +1,9 @@
 .swiper {
     width: 100%;
     position: relative;
+    
     .swiper-slide {
+        
         .d-flex {
             position: relative;
             .fa-heart {
@@ -13,6 +15,7 @@
             }
         }
     }
+   
 }
 .heart-fav {
     right: 1rem;
