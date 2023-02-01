@@ -1,6 +1,12 @@
 body {
   font-family: "Inter", sans-serif;
 }
+body .user-profile .fa-envelope, body .user-profile .fa-sign-out-alt {
+  font-size: 1.3rem;
+}
+body .img-user {
+  width: 9rem;
+}
 body .search-input {
   border-right: none;
   border-radius: 10rem 0rem 0rem 10rem !important;

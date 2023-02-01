@@ -11,6 +11,17 @@ $xxl: 1400px;
 
 
 body {
+    .user-profile  {
+        .fa-envelope, .fa-sign-out-alt{
+            font-size: 1.3rem;
+            
+        }
+        
+    }
+    .img-user{
+        
+        width:9rem ;
+    }
     .search-input{
         border-right: none;
         border-radius:10rem 0rem 0rem 10rem !important ;
