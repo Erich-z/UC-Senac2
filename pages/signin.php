@@ -27,11 +27,12 @@
       <div class="logo">
         <img src="../img/preto-pessoa.png" class="img-fluid" alt="" />
       </div>
-      <form action="#" method="post" class="needs-validation" novalidate>
+      <form action="signin2.php" method="get" class="needs-validation" novalidate>
        <div class="login d-grid gap-2">
         <div class="form-outline">
           <input
             type="text"
+            name="txtName"
             class="form-control rounded-pill"
             placeholder="Nome Completo"
             required
@@ -41,6 +42,7 @@
         <div class="form-outline">
           <input
             type="text"
+            name="txtEmail"
             id="formEmail"
             class="form-control rounded-pill"
             placeholder="Email"
@@ -52,6 +54,7 @@
         <div class="form-outline">
           <input
             type="password"
+            name="txtSenha"
             id="formPassword"
             class="form-control rounded-pill "
             placeholder="senha"
@@ -74,7 +77,7 @@
       </div>
     
       <div class="d-grid gap-2 buttons-login pt-2">
-        <button type="submit" class="btn btn-primary enter-button mx-5 mt-3">
+        <button type="submit" name="btncad" class="btn btn-primary enter-button mx-5 mt-3">
           Criar conta
         </button>
       </div>
