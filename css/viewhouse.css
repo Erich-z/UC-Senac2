@@ -51,4 +51,7 @@ body {
   object-fit: cover;
 }
 
-.link-muted { color: #aaa; } .link-muted:hover { color: #1266f1; }
+.avaliacao{
+  
+  border: 1px solid;
+}
