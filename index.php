@@ -23,12 +23,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="../css/swiper.css" />
+    <link rel="stylesheet" href="./css/swiper.css" />
   </head>
 
   <body>
@@ -57,7 +57,7 @@
             <ul class="dropdown-menu user-profile-dropdown">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="./db/logout.php">Sair</a></li>
             </ul>
           </div>
         </div>
@@ -71,7 +71,7 @@
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i> 
                     <img
-                  src="/img/lake-g7908b415b_1280.jpg"
+                  src="./img/lake-g7908b415b_1280.jpg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -81,7 +81,7 @@
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i> 
                     <img
-                  src="/img/lake-g7908b415b_1280.jpg"
+                  src="./img/lake-g7908b415b_1280.jpg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -91,7 +91,7 @@
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i> 
                     <img
-                  src="/img/lake-g7908b415b_1280.jpg"
+                  src="./img/lake-g7908b415b_1280.jpg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -128,7 +128,7 @@
                   <div class="d-flex">
                       <i class="fa-regular fa-heart"></i> 
                       <img
-                    src="/img/lake-g7908b415b_1280.jpg"
+                    src="./img/lake-g7908b415b_1280.jpg"
                     class="card-img-top"
                     alt="..."
                   />
@@ -138,7 +138,7 @@
                   <div class="d-flex">
                       <i class="fa-regular fa-heart"></i> 
                       <img
-                    src="/img/lake-g7908b415b_1280.jpg"
+                    src="./img/lake-g7908b415b_1280.jpg"
                     class="card-img-top"
                     alt="..."
                   />
@@ -148,7 +148,7 @@
                   <div class="d-flex">
                       <i class="fa-regular fa-heart"></i> 
                       <img
-                    src="/img/lake-g7908b415b_1280.jpg"
+                    src="./img/lake-g7908b415b_1280.jpg"
                     class="card-img-top"
                     alt="..."
                   />
@@ -185,7 +185,7 @@
                   <div class="d-flex">
                       <i class="fa-regular fa-heart"></i> 
                       <img
-                    src="/img/lake-g7908b415b_1280.jpg"
+                    src="./img/lake-g7908b415b_1280.jpg"
                     class="card-img-top"
                     alt="..."
                   />
@@ -195,7 +195,7 @@
                   <div class="d-flex">
                       <i class="fa-regular fa-heart"></i> 
                       <img
-                    src="/img/lake-g7908b415b_1280.jpg"
+                    src="./img/lake-g7908b415b_1280.jpg"
                     class="card-img-top"
                     alt="..."
                   />
@@ -205,7 +205,7 @@
                   <div class="d-flex">
                       <i class="fa-regular fa-heart"></i> 
                       <img
-                    src="/img/lake-g7908b415b_1280.jpg"
+                    src="./img/lake-g7908b415b_1280.jpg"
                     class="card-img-top"
                     alt="..."
                   />

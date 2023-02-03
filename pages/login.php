@@ -28,11 +28,12 @@
       <div class="logo">
         <img src="../img/preto-pessoa.png" class="img-fluid" alt="" />
       </div>
-      <form action="#" method="post" class="needs-validation" novalidate>
+      <form action="../db/validarDB.php" method="get" class="needs-validation" novalidate>
         <div class="login d-grid gap-2">
           <div class="form-outline">
             <input
               type="text"
+              name="txtEmail"
               id="formEmail"
               class="form-control rounded-pill"
               placeholder="Email"
@@ -43,6 +44,7 @@
           <div class="form-outline">
             <input
               type="password"
+              name="txtSenha"
               id="formPassword"
               class="form-control rounded-pill"
               placeholder="senha"
@@ -61,7 +63,7 @@
             <i class="fab fa-google"></i>Continue com o Google
           </button>
 
-          <button type="submit" class="btn btn-primary enter-button mt-3">
+          <button type="submit" name="btnConect" value="Entrar" class="btn btn-primary enter-button mt-3">
             Entrar
           </button>
         </div>
