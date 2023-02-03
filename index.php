@@ -1,3 +1,21 @@
+<?php 
+include ('./db/conexao.php');
+
+$sqlRequest = ("SELECT * FROM anuncios WHERE 1");
+$pesquisaAnuncios = $conexao->prepare($sqlRequest);
+$pesquisaAnuncios->execute();
+
+$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID	= 1 ");
+
+
+
+
+$sqlResquestImg = $conexao->prepare($sqlRequesImg);
+$sqlResquestImg->execute();
+?>
+
+  
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -48,6 +66,7 @@
           </div>
   
         </div>
+        
         <div class="col-2">
           <div class="dropdown d-flex">
             <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +80,9 @@
             </ul>
           </div>
         </div>
+        <!--inicio listagem-->
        
+        
         <div class="card col-12 col-lg-3">
           <div class="swiper">
             <!-- Additional required wrapper -->
@@ -70,34 +91,47 @@
               <div class="swiper-slide">
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i> 
+                    <?php while ($linha = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?>
                     <img
-                  src="./img/lake-g7908b415b_1280.jpg"
+                  src="<?php echo $linha->imoveis_img; ?>"
                   class="card-img-top"
                   alt="..."
                 />
+                <?php
+                  }
+                ?>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="d-flex">
+                    <i class="fa-regular fa-heart"></i>
+                    <?php while ($linha = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?> 
+                    <img
+                  src="<?php echo $linha->imoveis_img; ?>""
+                  class="card-img-top"
+                  alt="..."
+                />
+                <?php
+                  }
+                ?>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i> 
+                    <?php while ($linha = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?>
                     <img
-                  src="./img/lake-g7908b415b_1280.jpg"
+                  src="<?php echo $linha->imoveis_img; ?>"
                   class="card-img-top"
                   alt="..."
                 />
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="d-flex">
-                    <i class="fa-regular fa-heart"></i> 
-                    <img
-                  src="./img/lake-g7908b415b_1280.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
+                <?php
+                  }
+                ?>
                 </div>
               </div>
             </div>
+        
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
 
@@ -105,137 +139,25 @@
 
             <!-- If we need scrollbar -->
           </div>
+          <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title my-1">Presidente Epitacio - SP</h5>
+              <h5 class="card-title my-1"><?php echo $linha->imoveisCidade; ?></h5>
               <div><i class="fas fa-star"></i>4,5</div>
             </div>
             <p class="card-text text-secondary">
-              Av. tibiriçá - prox ao figueiral
+            <?php echo $linha->imoveisBairro; ?>
             </p>
-            <p class="card-text text-secondary">0KM de distancia</p>
             <p class="card-text text-secondary">
-              <span class="text-dark"><strong>R$</strong></span> 200/Noite
+              <span class="text-dark"><strong>R$</strong></span> <?php echo $linha->imoveisDiaria; ?>/Noite
             </p>
           </div>
         </div>
-        <div class="card col-12 col-lg-3">
-            <div class="swiper">
-              <!-- Additional required wrapper -->
-              <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                  <div class="d-flex">
-                      <i class="fa-regular fa-heart"></i> 
-                      <img
-                    src="./img/lake-g7908b415b_1280.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="d-flex">
-                      <i class="fa-regular fa-heart"></i> 
-                      <img
-                    src="./img/lake-g7908b415b_1280.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="d-flex">
-                      <i class="fa-regular fa-heart"></i> 
-                      <img
-                    src="./img/lake-g7908b415b_1280.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  </div>
-                </div>
-              </div>
-              <!-- If we need pagination -->
-              <div class="swiper-pagination"></div>
-  
-              <!-- If we need navigation buttons -->
-  
-              <!-- If we need scrollbar -->
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h5 class="card-title my-1">Presidente Epitacio - SP</h5>
-                <div><i class="fas fa-star"></i>4,5</div>
-              </div>
-              <p class="card-text text-secondary">
-                Av. tibiriçá - prox ao figueiral
-              </p>
-              <p class="card-text text-secondary">0KM de distancia</p>
-              <p class="card-text text-secondary">
-                <span class="text-dark"><strong>R$</strong></span> 200/Noite
-              </p>
-            </div>
-          </div>
-          <div class="card col-12 col-lg-3">
-            <div class="swiper">
-              <!-- Additional required wrapper -->
-              <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                  <div class="d-flex">
-                      <i class="fa-regular fa-heart"></i> 
-                      <img
-                    src="./img/lake-g7908b415b_1280.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="d-flex">
-                      <i class="fa-regular fa-heart"></i> 
-                      <img
-                    src="./img/lake-g7908b415b_1280.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="d-flex">
-                      <i class="fa-regular fa-heart"></i> 
-                      <img
-                    src="./img/lake-g7908b415b_1280.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  </div>
-                </div>
-              </div>
-              <!-- If we need pagination -->
-              <div class="swiper-pagination"></div>
-  
-              <!-- If we need navigation buttons -->
-  
-              <!-- If we need scrollbar -->
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h5 class="card-title my-1">Presidente Epitacio - SP</h5>
-                <div><i class="fas fa-star"></i>4,5</div>
-              </div>
-              <p class="card-text text-secondary">
-                Av. tibiriçá - prox ao figueiral
-              </p>
-              <p class="card-text text-secondary">0KM de distancia</p>
-              <p class="card-text text-secondary">
-                <span class="text-dark"><strong>R$</strong></span> 200/Noite
-              </p>
-            </div>
-          </div>
-      </div>
-
-    
+     
+       
+        <?php
+        }
+        ?>
     </main>
     <div class="tab d-lg-none d-flex">
       <i class="fas fa-search"></i>
