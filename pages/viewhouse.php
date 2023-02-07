@@ -1,3 +1,10 @@
+<?php 
+include ('../db/conexao.php');
+$id =  addslashes($_GET['id']);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

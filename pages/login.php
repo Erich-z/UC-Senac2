@@ -70,7 +70,7 @@
       </form>
       <div class="mt-3 text-center">
         <p class="m-0">
-          Não possui conta?<a href="./sign-in.html"> Criar onta</a>
+          Não possui conta?<a href="./signin.php"> Criar onta</a>
         </p>
         <a href="#" class="">Esqueci minha senha</a>
       </div>
