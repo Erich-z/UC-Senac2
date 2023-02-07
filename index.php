@@ -1,17 +1,17 @@
 <?php 
 include ('./db/conexao.php');
-
-$sqlRequest = ("SELECT * FROM anuncios WHERE 1");
+$anuncioID = 0;
+$sqlRequest = ("SELECT * FROM anuncios");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
 $pesquisaAnuncios->execute();
 
-$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID	= 1 ");
+
+
+//$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
 
 
 
 
-$sqlResquestImg = $conexao->prepare($sqlRequesImg);
-$sqlResquestImg->execute();
 ?>
 
   
@@ -82,54 +82,60 @@ $sqlResquestImg->execute();
         </div>
         <!--inicio listagem-->
        
+        <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
+          <?php $anuncioID = $linha->anuncioID;
+                $sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
+                $sqlResquestImg = $conexao->prepare($sqlRequesImg);
+                $sqlResquestImg->execute();
+          ?>
         
         <div class="card col-12 col-lg-3">
           <div class="swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
               <!-- Slides -->
+              <?php while ($linha2 = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?>
               <div class="swiper-slide">
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i> 
-                    <?php while ($linha = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?>
+                    
+                 
+                    
                     <img
-                  src="<?php echo $linha->imoveis_img; ?>"
+                  src="<?php echo $linha2->imoveis_img; ?>"
                   class="card-img-top"
                   alt="..."
                 />
-                <?php
+                </div>
+              
+              </div>
+              <?php
                   }
                 ?>
-                </div>
-              </div>
-              <div class="swiper-slide">
+              <!-- <div class="swiper-slide">
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i>
-                    <?php while ($linha = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?> 
+                    
                     <img
-                  src="<?php echo $linha->imoveis_img; ?>""
+                  src="<?php echo $linha2->imoveis_img; ?>""
                   class="card-img-top"
                   alt="..."
                 />
-                <?php
-                  }
-                ?>
+               
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="d-flex">
                     <i class="fa-regular fa-heart"></i> 
-                    <?php while ($linha = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?>
+                   
                     <img
-                  src="<?php echo $linha->imoveis_img; ?>"
+                  src="<?php echo $linha2->imoveis_img; ?>"
                   class="card-img-top"
                   alt="..."
                 />
-                <?php
-                  }
-                ?>
+                
                 </div>
-              </div>
+              </div> -->
             </div>
         
             <!-- If we need pagination -->
@@ -139,7 +145,7 @@ $sqlResquestImg->execute();
 
             <!-- If we need scrollbar -->
           </div>
-          <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
+         
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <h5 class="card-title my-1"><?php echo $linha->imoveisCidade; ?></h5>
