@@ -35,6 +35,7 @@
     <main class=" mt-5 container">
         <div class="d-flex align-items-center justify-content-center">
             <img src="/img/65265871.jpg" alt="" class="rounded-circle img-fluid img-user opacity-75" />
+            
             <div class="ms-3">
                 <p class="fw-bold mb-0">Jubileu Roberto</p>
             </div>
@@ -42,8 +43,8 @@
         <div class="mt-4 gap-3 d-flex flex-column align-items-center ">
             <!-- Button trigger modal -->
             <button id="button" type="button" class="btn btn-primary border-0" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" style="background-color: #5AC1FB; width: 18rem;">Anunciar
-                imovel</button>
+                data-bs-target="#staticBackdrop"
+                style="background-color: #5AC1FB; width: 18rem; text-align: left">Alterar senha</button>
 
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -55,56 +56,87 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <form action="#" method="post" class="needs-validation" novalidate>
+                                <div class="login d-grid gap-2 change-password">
+                                    <div class="form-outline">
+                                        <input type="password" id="formPassword" class="form-control rounded-pill "
+                                            placeholder="senha" required />
+                                        <div class="invalid-feedback ms-2 mt-2">Por favor, insira sua senha</div>
+                                        <i class="fas eye-icon fa-eye-slash"></i>
+                                    </div>
+                                    <div class="form-outline">
+                                        <input type="password" id="formPassword" class="form-control rounded-pill "
+                                            placeholder="confirme sua senha" required />
+                                        <div class="invalid-feedback ms-2 mt-2">Por favor, confirme sua senha</div>
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2 buttons-login pt-2">
+                                    <button type="submit" class="btn btn-primary enter-button  mt-3">
+                                        Salvar senha
+                                    </button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancelar</button>
 
-                            <form>
-                                <div class="mb-3">
-                                  <label for="exampleInputEmail1" class="form-label">Nova senha</label>
-                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                  
                                 </div>
-                                <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">Repita a senha</label>
-                                  <input type="password" class="form-control" id="exampleInputPassword1">
-                                </div>
-                                
-                                
-                              </form>
+                            </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Salvar senha</button>
-                        </div>
+
                     </div>
                 </div>
             </div>
 
             <button id="button" type="button" class="btn btn-primary border-0" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" style="background-color: #5AC1FB; width: 18rem;">Anunciar
-                imovel</button>
+                data-bs-target="#staticBackdrop2"
+                style="background-color: #5AC1FB; width: 18rem; text-align: left;">Alterar
+                email</button>
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Alterar senha</h5>
+                            <h5 class="modal-title " id="staticBackdropLabe2">Alterar email</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+
                         <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Salvar senha</button>
+                            <form action="#" method="post" class="needs-validation" novalidate>
+                                <div class="login d-grid gap-2">
+                                    <div class="form-outline">
+                                        <input type="text" id="formEmail" class="form-control rounded-pill"
+                                            placeholder="Novo email" required />
+                                        <div class="invalid-feedback ms-2 mt-2">Por favor, insira seu email</div>
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2 buttons-login pt-2">
+                                    <button type="submit" class="btn btn-primary enter-button  mt-3">
+                                        Salvar email
+                                    </button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancelar</button>
+
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+
+
             </div>
+
+           
+
+            
+
+
             
         </div>
 
-
+        <!-- <div class="text-center" style=" position: relative; bottom: -15rem;  ">
+            <button onclick="window.history.back()" type="button" class="btn btn-primary border-0"
+                style="background-color: #007cc4; width: 10rem; ">Salvar e sair</button>
+        </div> -->
 
     </main>
 
@@ -126,6 +158,7 @@
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
         crossorigin="anonymous"></script>
 
-
+    <script src="../js/main.js"></script>
+    
 
 </html>

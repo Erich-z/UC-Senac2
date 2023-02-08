@@ -1,4 +1,4 @@
-$backgroundInput:#D9D9D9;
+$backgroundInput: #D9D9D9;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
@@ -11,41 +11,50 @@ $xxl: 1400px;
 
 
 body {
-    .user-profile{
-        .fa-envelope, .fa-sign-out-alt{
+    .user-profile {
+
+        .fa-envelope,
+        .fa-sign-out-alt {
             font-size: 1.3rem;
-            
+
         }
-        
+
     }
-    
-    .img-user{
-        
-        width:9rem ;
+
+    .img-user {
+
+        width: 9rem;
     }
-    .search-input{
+
+    .search-input {
         border-right: none;
-        border-radius:10rem 0rem 0rem 10rem !important ;
+        border-radius: 10rem 0rem 0rem 10rem !important;
     }
-    .search-input-left{
+
+    .search-input-left {
         border-left: none;
         background-color: transparent;
-        border-radius:0rem 10rem 10rem 0rem !important ;
+        border-radius: 0rem 10rem 10rem 0rem !important;
     }
-    font-family: 'Inter', sans-serif;
-    .login-page{
+
+    font-family: 'Inter',
+    sans-serif;
+
+    .login-page {
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content:center ;
-        &{
+        justify-content: center;
+
+        & {
             @media (min-width:$xl) {
-               width:500px !important;
+                width: 500px !important;
             }
         }
-       
-        
+
+
     }
+
     .logo-text {
         color: #1c1c1c;
         font-weight: 900;
@@ -57,31 +66,33 @@ body {
     }
 
     .login {
-        .eye-icon{
+        .eye-icon {
             position: absolute;
             top: .7rem;
             right: 1rem;
         }
+
         .form-outline {
 
             .form-notch {
                 display: none;
             }
         }
-        .invalid-feedback{
+
+        .invalid-feedback {
             margin-top: -1rem;
-            position:relative;
+            position: relative;
         }
 
         input {
             background-color: $backgroundInput !important;
         }
-        
+
 
     }
 
     main {
-      
+
         .buttons-login {
             .enter-button {
                 font-size: 1rem;
@@ -115,10 +126,11 @@ body {
                 height: 1px;
                 color: #000;
                 background: #ccc;
+
                 @media (min-width:$xl) {
-                    width:42% !important;
-                 }
-                
+                    width: 42% !important;
+                }
+
             }
 
             &::after {
@@ -130,11 +142,12 @@ body {
                 height: 1px;
                 color: #000;
                 background: #ccc;
+
                 @media (min-width:$xl) {
-                    width:42% !important;
-                 }
+                    width: 42% !important;
+                }
             }
-            
+
         }
 
         .container {
@@ -149,7 +162,7 @@ body {
                 margin: 0 auto;
                 justify-content: center;
                 margin-bottom: 1rem;
-               
+
 
                 .card-text {
                     p {
@@ -167,37 +180,50 @@ body {
     }
 }
 
-.home-page{
-    
-    img{
+.home-page {
+
+    img {
         border-radius: 1.4rem;
     }
-    
-    .card{
-        &:last-child{
+
+    .card {
+        &:last-child {
             padding-bottom: 3rem;
         }
+
         border: none;
-        
-        .card-body{
-            padding:0 .6rem;
+
+        .card-body {
+            padding: 0 .6rem;
         }
-        .card-title{
+
+        .card-title {
             font-size: 16px;
             font-weight: 700;
             margin: 0;
             line-height: 1.2;
-   
+
         }
-        .card-text{
+
+        .card-text {
             margin: 0;
             padding: 0;
             line-height: 1.2;
         }
     }
+
 }
 
-.tab{
+.change-password {
+    position: relative;
+
+    
+    .eye-icon {
+        right: 2rem !important;
+    }
+}
+
+.tab {
     padding: .5rem 0;
     position: fixed;
     bottom: 0;

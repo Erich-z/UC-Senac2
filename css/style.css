@@ -1,7 +1,8 @@
 body {
   font-family: "Inter", sans-serif;
 }
-body .user-profile .fa-envelope, body .user-profile .fa-sign-out-alt {
+body .user-profile .fa-envelope,
+body .user-profile .fa-sign-out-alt {
   font-size: 1.3rem;
 }
 body .img-user {
@@ -138,6 +139,13 @@ body main .container .card .menu {
   margin: 0;
   padding: 0;
   line-height: 1.2;
+}
+
+.change-password {
+  position: relative;
+}
+.change-password .eye-icon {
+  right: 2rem !important;
 }
 
 .tab {
