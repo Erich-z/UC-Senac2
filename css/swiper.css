@@ -12,6 +12,28 @@
   position: absolute;
   color: #fff;
 }
+.swiper .swiper-slide img {
+  display: flex;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 240px;
+}
+@media (min-width: 576px) {
+  .swiper .swiper-slide img {
+    height: 350px;
+  }
+}
+@media (min-width: 768px) {
+  .swiper .swiper-slide img {
+    height: 465px;
+  }
+}
+@media (min-width: 992px) {
+  .swiper .swiper-slide img {
+    height: 150px;
+  }
+}
 
 .heart-fav {
   right: 1rem;
