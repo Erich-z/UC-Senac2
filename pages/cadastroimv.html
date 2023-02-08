@@ -25,28 +25,31 @@
 </head>
 <body>
     <main class="container login-page">
+      <div class="borda">
+       
         <div class="textimv">
-            <h1>Olá, <span style="color: #00A3FF;">Bem-vindo</span></h1>
+          <img class="logo" src="../img/logo/MicrosoftTeams-image.png" alt="">
+            <h1 class="bv">Olá, <span style="color: #00A3FF;">Bem-vindo</span></h1>
             <p>para <span style="color: #0057FF;">cadastrar</span> seu imovel preencha o formulario.</p>
         </div>
 
         <form action="#" method="post" class="needs-validation" novalidate>
-            <div class="login d-grid gap-2">
+            <div class="login d-grid gap-3">
                 <div class="form-outline">
                   <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu nome" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu nome</div>
             </div>
-            <div class="login d-grid gap-2">
+            <div class="login d-grid gap-3">
                 <div class="form-outline">
                   <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu CPF" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu CPF</div>
             </div>
-            <div class="login d-grid gap-2">
+            <div class="login d-grid gap-3">
                 <div class="form-outline">
                   <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu Telefone" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu telefone</div>
             </div>
-            <div class="login d-grid gap-2">
+            <div class="login d-grid gap-3">
                 <div class="form-outline">
                   <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu preço pela diaria" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu preço diaria</div>
@@ -54,6 +57,12 @@
             
         </form>
         <button class="btnnext" type="submit"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="tab d-lg-none d-flex">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-user"></i>
+      </div>
     </main>
     <script
     type="text/javascript"
