@@ -17,11 +17,11 @@
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 240px;
+  height: 370px;
 }
 @media (min-width: 576px) {
   .swiper .swiper-slide img {
-    height: 350px;
+    height: 370px;
   }
 }
 @media (min-width: 768px) {
@@ -31,7 +31,7 @@
 }
 @media (min-width: 992px) {
   .swiper .swiper-slide img {
-    height: 150px;
+    height: 200px;
   }
 }
 
