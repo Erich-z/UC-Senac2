@@ -1,4 +1,4 @@
-$backgroundInput:#D9D9D9;
+$backgroundInput: #D9D9D9;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
@@ -8,33 +8,74 @@ $xxl: 1400px;
 
 
 
-
-
 body {
    
-    .search-input{
-        border-right: none;
-        border-radius:10rem 0rem 0rem 10rem !important ;
+            background-image: url("/img/bunda-azul.png");
+            background-repeat: no-repeat;
+            background-size: 7rem;
+    .file-upload-photo-profile{
+        position: relative;
+        
     }
-    .search-input-left{
+    .imgAdd {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #4bd7ef;
+        color: #fff;
+        box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        line-height: 40px;
+        right: 10px;
+        margin-top: 35px;
+        cursor: pointer;
+        font-size: 30px;
+    }
+    .user-profile {
+
+        .fa-envelope,
+        .fa-sign-out-alt {
+            font-size: 1.3rem;
+
+        }
+
+    }
+
+    .img-user {
+
+        width: 9rem;
+    }
+
+    .search-input {
+        border-right: none;
+        border-radius: 10rem 0rem 0rem 10rem !important;
+    }
+
+    .search-input-left {
         border-left: none;
         background-color: transparent;
-        border-radius:0rem 10rem 10rem 0rem !important ;
+        border-radius: 0rem 10rem 10rem 0rem !important;
     }
-    font-family: 'Inter', sans-serif;
-    .login-page{
+
+    font-family: 'Inter',
+    sans-serif;
+
+    .login-page {
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content:center ;
-        &{
+        justify-content: center;
+
+        & {
             @media (min-width:$xl) {
-               width:500px !important;
+                width: 500px !important;
             }
         }
-       
-        
+
+
     }
+
     .logo-text {
         color: #1c1c1c;
         font-weight: 900;
@@ -43,34 +84,37 @@ body {
 
     .logo {
         padding: 0 2rem;
+
     }
 
     .login {
-        .eye-icon{
+        .eye-icon {
             position: absolute;
             top: .7rem;
             right: 1rem;
         }
+
         .form-outline {
 
             .form-notch {
                 display: none;
             }
         }
-        .invalid-feedback{
+
+        .invalid-feedback {
             margin-top: -1rem;
-            position:relative;
+            position: relative;
         }
 
         input {
             background-color: $backgroundInput !important;
         }
-        
+
 
     }
 
     main {
-      
+
         .buttons-login {
             .enter-button {
                 font-size: 1rem;
@@ -104,10 +148,11 @@ body {
                 height: 1px;
                 color: #000;
                 background: #ccc;
+
                 @media (min-width:$xl) {
-                    width:42% !important;
-                 }
-                
+                    width: 42% !important;
+                }
+
             }
 
             &::after {
@@ -119,11 +164,12 @@ body {
                 height: 1px;
                 color: #000;
                 background: #ccc;
+
                 @media (min-width:$xl) {
-                    width:42% !important;
-                 }
+                    width: 42% !important;
+                }
             }
-            
+
         }
 
         .container {
@@ -138,7 +184,7 @@ body {
                 margin: 0 auto;
                 justify-content: center;
                 margin-bottom: 1rem;
-               
+
 
                 .card-text {
                     p {
@@ -156,37 +202,50 @@ body {
     }
 }
 
-.home-page{
-    
-    img{
+.home-page {
+
+    img {
         border-radius: 1.4rem;
     }
-    
-    .card{
-        &:last-child{
+
+    .card {
+        &:last-child {
             padding-bottom: 3rem;
         }
+
         border: none;
-        
-        .card-body{
-            padding:0 .6rem;
+
+        .card-body {
+            padding: 0 .6rem;
         }
-        .card-title{
+
+        .card-title {
             font-size: 16px;
             font-weight: 700;
             margin: 0;
             line-height: 1.2;
-   
+
         }
-        .card-text{
+
+        .card-text {
             margin: 0;
             padding: 0;
             line-height: 1.2;
         }
     }
+
 }
 
-.tab{
+.change-password {
+    position: relative;
+
+
+    .eye-icon {
+        right: 2rem !important;
+    }
+}
+
+.tab {
     padding: .5rem 0;
     position: fixed;
     bottom: 0;
