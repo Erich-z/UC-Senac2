@@ -1,5 +1,6 @@
 <?php
 include('./db/conexao.php');
+include ('./db/verificaSS.php');
 $anuncioID = 0;
 $sqlRequest = ("SELECT * FROM anuncios");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
@@ -7,11 +8,14 @@ $pesquisaAnuncios->execute();
 
 
 
+
 //$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
 
-
-
-
+$usuarioLogin = $_SESSION['login'];
+//$usuarioSelect = ("SELECT * from usuario where $usuarioLogin");
+//$usuarioReady = $conexao->prepare($usuarioSelect);
+//$usuarioReady->execute();
+echo $usuarioLogin;
 ?>
 
 
@@ -39,8 +43,12 @@ $pesquisaAnuncios->execute();
 <body>
   <main class="container home-page">
     <h1 class="text-center"></h1>
+    <div class=" d-flex m-0 p-0 justify-content-end mb-2">
+      <a href="./pages/cadastroimv.php" class="btn btn-primary">Seja um HOST!</a>
+    </div>
     <div class="row gy-3">
-      <div class="col-10 d-flex align-items-center">
+
+      <div class="col-11 d-flex align-items-center">
         <div class="input-group">
 
           <input type="text" class="form-control search-input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="O que  procura?" /> <span class="input-group-text search-input-left"><i class="fas fa-search"></i></span>
@@ -48,18 +56,21 @@ $pesquisaAnuncios->execute();
 
       </div>
 
-      <div class="col-2">
-        <div class="dropdown d-flex">
+      <div class="col-1 d-flex justify-content-end">
+        <div class="dropdown d-flex ">
           <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px">
 
           </a>
-          <ul class="dropdown-menu user-profile-dropdown">
-            <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-            <li><a class="dropdown-item" href="./db/logout.php">Sair</a></li>
+          <ul class="dropdown-menu user-profile-dropdown p-0">
+            <li><a class="dropdown-item" href="./pages/user-profile.php">Meu Perfil</a></li>
+            <li><a class="dropdown-item" href="./pages/edit-profile.php?idu=<?php echo $usuarioLogin ?>">Editar Perfil</a></li>
+
+            <li><a class="dropdown-item bg-danger rounded-bottom text-white" href="./db/logout.php">Sair</a></li>
           </ul>
         </div>
       </div>
+
       <!--inicio listagem-->
 
       <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
@@ -68,10 +79,10 @@ $pesquisaAnuncios->execute();
         $sqlResquestImg = $conexao->prepare($sqlRequesImg);
         $sqlResquestImg->execute();
         ?>
-       
-          <div class="card col-12 col-lg-3">
+
+        <div class="card col-12 col-lg-3">
           <a href="./pages/viewhouse.php?id=<?php echo $anuncioID; ?> " style="text-decoration: none !important; color: black; ">
-          <div class="swiper">
+            <div class="swiper">
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -113,12 +124,12 @@ $pesquisaAnuncios->execute();
               </p>
             </div>
           </a>
-          </div>
+        </div>
 
 
-        <?php
+      <?php
       }
-        ?>
+      ?>
   </main>
   <div class="tab d-lg-none d-flex">
     <i class="fas fa-search"></i>

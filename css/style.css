@@ -1,5 +1,33 @@
 body {
+  background-image: url("/img/bunda-azul.png");
+  background-repeat: no-repeat;
+  background-size: 7rem;
   font-family: "Inter", sans-serif;
+}
+body .file-upload-photo-profile {
+  position: relative;
+}
+body .imgAdd {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4bd7ef;
+  color: #fff;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  line-height: 40px;
+  right: 10px;
+  margin-top: 35px;
+  cursor: pointer;
+  font-size: 30px;
+}
+body .user-profile .fa-envelope,
+body .user-profile .fa-sign-out-alt {
+  font-size: 1.3rem;
+}
+body .img-user {
+  width: 9rem;
 }
 body .search-input {
   border-right: none;
@@ -132,6 +160,13 @@ body main .container .card .menu {
   margin: 0;
   padding: 0;
   line-height: 1.2;
+}
+
+.change-password {
+  position: relative;
+}
+.change-password .eye-icon {
+  right: 2rem !important;
 }
 
 .tab {

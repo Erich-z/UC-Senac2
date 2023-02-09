@@ -4,12 +4,13 @@ if(!isset($_SESSION)){
 }
 
 if(empty($_SESSION['ativo'])){
-    header("Location:index.html");
+    header("Location:index.php");
     
 }
 else
 {
     //$usuarioLogin = json_encode($_SESSION[ 'login' ]);
     $usuarioLogin = $_SESSION['login'];
+    
 }
 ?>
