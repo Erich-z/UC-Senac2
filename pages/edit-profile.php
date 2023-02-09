@@ -1,9 +1,9 @@
 <?php
 include('../db/conexao.php');
+include ('../db/verificaSS.php');
+$idu = $_SESSION[ 'id' ];
 
-$idu = addslashes($_GET['idu']);
-
-$infoPerfil = ("SELECT * from usuario where usuarioEmail = '$idu' ");
+$infoPerfil = ("SELECT * from usuario where usuarioId = $idu ");
 $perfilselecionad = $conexao->prepare($infoPerfil);
 $perfilselecionad->execute();
 
@@ -73,7 +73,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="./edit-password.php?idu=<?php echo $idu?>" method="get" class="needs-validation" novalidate>
+                            <form action="./edit-password.php" method="get" class="needs-validation" novalidate>
                                 <div class="login d-grid gap-2 change-password">
                                     <div class="form-outline">
                                         <input type="password" id="formPassword" class="form-control rounded-pill "
@@ -88,7 +88,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 buttons-login pt-2">
-                                    <button type="submit"  name="btnEdit" class="btn btn-primary enter-button  mt-3">
+                                    <button type="submit"  class="btn btn-primary enter-button  mt-3">
                                         Salvar senha
                                     </button>
                                     <button type="button" class="btn btn-secondary"
@@ -118,11 +118,11 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
                         </div>
 
                         <div class="modal-body">
-                            <form action="#" method="post" class="needs-validation" novalidate>
+                            <form action="edit-email.php" method="get" class="needs-validation" novalidate>
                                 <div class="login d-grid gap-2">
                                     <div class="form-outline">
                                         <input type="text" id="formEmail" class="form-control rounded-pill"
-                                            placeholder="Novo email" required />
+                                            placeholder="Novo email" name="txtemail" required />
                                         <div class="invalid-feedback ms-2 mt-2">Por favor, insira seu email</div>
                                     </div>
                                 </div>

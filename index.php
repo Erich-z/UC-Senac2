@@ -11,11 +11,11 @@ $pesquisaAnuncios->execute();
 
 //$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
 
-$usuarioLogin = $_SESSION['login'];
+$usuarioLogin = $_SESSION['id'];
 //$usuarioSelect = ("SELECT * from usuario where $usuarioLogin");
 //$usuarioReady = $conexao->prepare($usuarioSelect);
 //$usuarioReady->execute();
-echo $usuarioLogin;
+//echo $usuarioLogin;
 ?>
 
 
@@ -64,7 +64,7 @@ echo $usuarioLogin;
           </a>
           <ul class="dropdown-menu user-profile-dropdown p-0">
             <li><a class="dropdown-item" href="./pages/user-profile.php">Meu Perfil</a></li>
-            <li><a class="dropdown-item" href="./pages/edit-profile.php?idu=<?php echo $usuarioLogin ?>">Editar Perfil</a></li>
+            <li><a class="dropdown-item" href="./pages/edit-profile.php">Editar Perfil</a></li>
 
             <li><a class="dropdown-item bg-danger rounded-bottom text-white" href="./db/logout.php">Sair</a></li>
           </ul>
