@@ -55,8 +55,7 @@ $pesquisaAnuncios->execute();
 
           </a>
           <ul class="dropdown-menu user-profile-dropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Editar perfil</a></li>
             <li><a class="dropdown-item" href="./db/logout.php">Sair</a></li>
           </ul>
         </div>
@@ -65,7 +64,7 @@ $pesquisaAnuncios->execute();
 
       <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
         <?php $anuncioID = $linha->anuncioID;
-        $sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
+        $sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE anuncioID = $anuncioID");
         $sqlResquestImg = $conexao->prepare($sqlRequesImg);
         $sqlResquestImg->execute();
         ?>
@@ -82,7 +81,7 @@ $pesquisaAnuncios->execute();
                       <i class="fa-regular fa-heart"></i>
 
 
-
+                    
                       <img src="<?php echo $linha2->imoveis_img; ?>" class="card-img-top" alt="..." />
                     </div>
 

@@ -3,7 +3,7 @@ include ('../db/conexao.php');
 $id =  addslashes($_GET['id']);
 
 
-$selectImgHouse = ("SELECT imoveis_img from anuncio_imagens where Anuncios_anuncioID = $id");
+$selectImgHouse = ("SELECT imoveis_img from anuncio_imagens where anuncioID = $id");
 $selectImgs = $conexao->prepare($selectImgHouse);
 $selectImgs->execute();
 

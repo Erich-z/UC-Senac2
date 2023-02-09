@@ -2,13 +2,13 @@
     $SGBD_Escolhido = "MySQL";
     //$SGBD_Escolhido = "SQLServer";
     $servidorSQLSrv = 'localhost';
-    $servidorMySQL = 'mysqlinhouse.mysql.database.azure.com';
+    $servidorMySQL = 'localhost'; //mysqlinhouse.mysql.database.azure.com
     $bancoDeDadosSQLSrv = 'inhouse';
     $bancoDeDadosMySQL = 'inhouse';
     $usuarioSQLSrv = 'sa';
-    $usuarioMySQL = 'inhousedbadmin';
+    $usuarioMySQL = 'root';//inhousedbadmin
     $senhaSQLSrv = 'senac111';
-    $senhaMySQL = '@Senac111';
+    $senhaMySQL = '';//@Senac111
  
     $stringPDOSQLSrv = "sqlsrv:Server=".$servidorSQLSrv."; Database=".$bancoDeDadosSQLSrv;
     $stringPDOMySQL = "mysql:host=".$servidorMySQL."; dbname=".$bancoDeDadosMySQL;
