@@ -3,6 +3,15 @@ include ('../db/conexao.php');
 $id =  addslashes($_GET['id']);
 
 
+$selectImgHouse = ("SELECT imoveis_img from anuncio_imagens where anuncioID = $id");
+$selectImgs = $conexao->prepare($selectImgHouse);
+$selectImgs->execute();
+
+
+$selectHouse = ("SELECT * from anuncios WHERE anuncioID = $id");
+$selectCasa = $conexao->prepare($selectHouse);
+$selectCasa->execute();
+$linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
 ?>
 
 <!DOCTYPE html>
@@ -24,33 +33,36 @@ $id =  addslashes($_GET['id']);
 
     </header>
     <main class="">
+    
         <div class="swiper mySwiper slide">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../img//lake-g7908b415b_1280.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="../img//lake-g7908b415b_1280.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="../img//lake-g7908b415b_1280.jpg" alt=""></div>
-
+            <?php while ($linhaImg = $selectImgs->fetch(PDO::FETCH_OBJ)) { ?>
+                <div class="swiper-slide">
+                  <img src=".<?php echo $linhaImg->imoveis_img ?>" alt="">
+                </div>
+                
+                <?php } ?>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
-
+      
         <div class="card mb-3 ">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex justify-content-between">
-                  <h4 class="card-title">Presidente Epitacio - SP</h4>
+                  <h4 class="card-title"><?php echo $linhaHouse->imoveisCidade?></h4>
                     <h4><i class="fas fa-star"></i>4,5</h4>
                 </div>
                 <div class="">
                 <p class="card-text brevDescricao">
-                    Casa para passar o final de semana
+                <?php echo $linhaHouse->imoveisDescricao?>
                 </p>
                 <p class="card-text endereco">
-                  <i class="fa-sharp fa-solid fa-location-dot text-dark"></i> Av. Manoel Goulart - Prox ao Figueiral
+                  <i class="fa-sharp fa-solid fa-location-dot text-dark"></i>  <?php echo $linhaHouse->imoveisRua?> 
                </p>
                <p class="card-text preco">
-                <i class="fa-solid fa-brazilian-real-sign text-dark"></i> 200
+                <i class="fa-solid fa-brazilian-real-sign text-dark"></i>   <?php echo $linhaHouse->imoveisDiaria?>
                </p>
                 </div>
             </div>
@@ -59,9 +71,7 @@ $id =  addslashes($_GET['id']);
                 <h5 class="card-title">Descrição do imovél</h5>
 
                 <p class="card-text">
-                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolor, 
-                   quo reprehenderit, ad ut beatae libero ea quae quisquam nostrum assumenda 
-                   repellat hic cupiditate facere, aperiam enim laboriosam deleniti totam?
+                <?php echo $linhaHouse->imoveisDescricao?>
                 </p>
             </div>
             <hr>

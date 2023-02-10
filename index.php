@@ -1,5 +1,6 @@
 <?php
 include('./db/conexao.php');
+include ('./db/verificaSS.php');
 $anuncioID = 0;
 $sqlRequest = ("SELECT * FROM anuncios");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
@@ -7,11 +8,14 @@ $pesquisaAnuncios->execute();
 
 
 
+
 //$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
 
-
-
-
+//$usuarioLogin = $_SESSION['id'];
+//$usuarioSelect = ("SELECT * from usuario where $usuarioLogin");
+//$usuarioReady = $conexao->prepare($usuarioSelect);
+//$usuarioReady->execute();
+//echo $usuarioLogin;
 ?>
 
 
@@ -44,7 +48,7 @@ $pesquisaAnuncios->execute();
     </div>
     <div class="row gy-3">
 
-      <div class="col-11 d-flex align-items-center">
+      <div class="col-10 col-md-11 d-flex align-items-center">
         <div class="input-group">
 
           <input type="text" class="form-control search-input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="O que  procura?" /> <span class="input-group-text search-input-left"><i class="fas fa-search"></i></span>
@@ -52,8 +56,11 @@ $pesquisaAnuncios->execute();
 
       </div>
 
-      <div class="col-1 d-flex justify-content-end">
-        <div class="dropdown d-flex ">
+      <div class="col-2 col-md-1 d-flex justify-content-end">
+        <?php 
+          if($isLogged) { 
+        ?>
+            <div class="dropdown d-flex ">
           <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px">
 
@@ -62,16 +69,23 @@ $pesquisaAnuncios->execute();
             <li><a class="dropdown-item" href="./pages/user-profile.php">Meu Perfil</a></li>
             <li><a class="dropdown-item" href="./pages/edit-profile.php">Editar Perfil</a></li>
 
-            <li><a class="dropdown-item bg-danger rounded-bottom text-white" href="./db/logout.php">Kainam</a></li>
+            <li><a class="dropdown-item bg-danger rounded-bottom text-white" href="./db/logout.php">Sair</a></li>
           </ul>
         </div>
+         <?php 
+         }else{ ?>
+          <a href="./pages/login.php">login</a>
+        
+        <?php }
+        ?>
+        
       </div>
 
       <!--inicio listagem-->
 
       <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
         <?php $anuncioID = $linha->anuncioID;
-        $sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
+        $sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE anuncioID = $anuncioID");
         $sqlResquestImg = $conexao->prepare($sqlRequesImg);
         $sqlResquestImg->execute();
         ?>
@@ -88,7 +102,7 @@ $pesquisaAnuncios->execute();
                       <i class="fa-regular fa-heart"></i>
 
 
-
+                    
                       <img src="<?php echo $linha2->imoveis_img; ?>" class="card-img-top" alt="..." />
                     </div>
 

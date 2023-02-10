@@ -1,3 +1,22 @@
+<?php
+include('../db/conexao.php');
+include ('../db/verificaSS.php');
+$idu = $_SESSION[ 'id' ];
+
+$infoPerfil = ("SELECT * from usuario where usuarioId = $idu ");
+$perfilselecionad = $conexao->prepare($infoPerfil);
+$perfilselecionad->execute();
+
+$perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
+
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,7 +44,7 @@
 <body>
     <main class=" mt-5 container">
         <div class="d-flex align-items-center justify-content-center">
-            <img src="/img/65265871.jpg" alt="" class="rounded-circle img-fluid img-user opacity-75" />
+            <img src="../img/images.png" alt="" class="rounded-circle img-fluid img-user opacity-75" />
             <label for="file-upload-photo-profile" class="file-upload-photo-profile">
                 <i class="fa fa-plus imgAdd">
 
@@ -35,7 +54,7 @@
 
 
             <div class="ms-3">
-                <p class="fw-bold mb-0">Jubileu Roberto</p>
+                <p class="fw-bold mb-0"><?php echo $perfilUsuario->usuarioNome?></p>
             </div>
         </div>
         <div class="mt-4 gap-3 d-flex flex-column align-items-center ">
@@ -54,11 +73,11 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="#" method="post" class="needs-validation" novalidate>
+                            <form action="./edit-password.php" method="get" class="needs-validation" novalidate>
                                 <div class="login d-grid gap-2 change-password">
                                     <div class="form-outline">
                                         <input type="password" id="formPassword" class="form-control rounded-pill "
-                                            placeholder="senha" required />
+                                            placeholder="senha" name="txtkey" required />
                                         <div class="invalid-feedback ms-2 mt-2">Por favor, insira sua senha</div>
                                         <i class="fas eye-icon fa-eye-slash"></i>
                                     </div>
@@ -69,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 buttons-login pt-2">
-                                    <button type="submit" class="btn btn-primary enter-button  mt-3">
+                                    <button type="submit"  class="btn btn-primary enter-button  mt-3">
                                         Salvar senha
                                     </button>
                                     <button type="button" class="btn btn-secondary"
@@ -99,11 +118,11 @@
                         </div>
 
                         <div class="modal-body">
-                            <form action="#" method="post" class="needs-validation" novalidate>
+                            <form action="edit-email.php" method="get" class="needs-validation" novalidate>
                                 <div class="login d-grid gap-2">
                                     <div class="form-outline">
                                         <input type="text" id="formEmail" class="form-control rounded-pill"
-                                            placeholder="Novo email" required />
+                                            placeholder="Novo email" name="txtemail" required />
                                         <div class="invalid-feedback ms-2 mt-2">Por favor, insira seu email</div>
                                     </div>
                                 </div>
