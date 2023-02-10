@@ -1,9 +1,9 @@
 
 
 .logo{
-    width: 56%;
+    width: 54%;
     height: 115px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   
   
@@ -24,8 +24,8 @@
   }
   
   .btn{
-    margin-top: 3rem;
-    margin-left: 132px;
+    margin-top: 2rem;
+    margin-left: 134px;
     background-color: #3f9ad5;
   }
     
@@ -42,8 +42,8 @@ label{
     color: #ffffff;
     font-size: 18px;
     text-align: center;
-    width: 179px;
-    height: 50px;
+    width: 153px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-items: center;
@@ -82,9 +82,9 @@ figcaption{
      box-shadow: none;
     }
     .logo{
-       
         width: 78%;
         height: 115px;
+        margin-bottom: -1rem;
       }
       label{
         display: block;
@@ -93,8 +93,8 @@ figcaption{
         color: #ffffff;
         font-size: 18px;
         text-align: center;
-        width: 179px;
-        height: 50px;
+        width: 153px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-items: center;
@@ -109,5 +109,8 @@ figcaption{
         margin-left: 74px;
         background-color: #3f9ad5;
       }
+    .titulo{
+      font-size: 16px;
+    }
     
   }
