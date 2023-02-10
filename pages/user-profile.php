@@ -3,7 +3,7 @@ include('../db/conexao.php');
 include ('../db/verificaSS.php');
 $anuncioID = 0;
 $usuarioLogin = $_SESSION['id'];
-$sqlRequest = ("SELECT * FROM anuncios");
+$sqlRequest = ("SELECT * FROM anuncios where ANusuarioID = $usuarioLogin");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
 $pesquisaAnuncios->execute();
 

@@ -5,6 +5,6 @@ unset($_SESSION['ativo']);
 unset($_SESSION['login']);
 
 session_destroy();
-header("Location:../pages/login.php");
+header("Location:../index.php");
 
 ?>

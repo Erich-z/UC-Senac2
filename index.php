@@ -11,7 +11,7 @@ $pesquisaAnuncios->execute();
 
 //$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
 
-$usuarioLogin = $_SESSION['id'];
+//$usuarioLogin = $_SESSION['id'];
 //$usuarioSelect = ("SELECT * from usuario where $usuarioLogin");
 //$usuarioReady = $conexao->prepare($usuarioSelect);
 //$usuarioReady->execute();
@@ -57,7 +57,10 @@ $usuarioLogin = $_SESSION['id'];
       </div>
 
       <div class="col-2 col-md-1 d-flex justify-content-end">
-        <div class="dropdown d-flex ">
+        <?php 
+          if($isLogged) { 
+        ?>
+            <div class="dropdown d-flex ">
           <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px">
 
@@ -69,6 +72,13 @@ $usuarioLogin = $_SESSION['id'];
             <li><a class="dropdown-item bg-danger rounded-bottom text-white" href="./db/logout.php">Sair</a></li>
           </ul>
         </div>
+         <?php 
+         }else{ ?>
+          <a href="./pages/login.php">login</a>
+        
+        <?php }
+        ?>
+        
       </div>
 
       <!--inicio listagem-->
