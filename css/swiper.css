@@ -17,7 +17,7 @@
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 370px;
+  height: 270px;
 }
 @media (min-width: 576px) {
   .swiper .swiper-slide img {

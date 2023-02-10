@@ -48,7 +48,7 @@ $usuarioLogin = $_SESSION['id'];
     </div>
     <div class="row gy-3">
 
-      <div class="col-11 d-flex align-items-center">
+      <div class="col-10 col-md-11 d-flex align-items-center">
         <div class="input-group">
 
           <input type="text" class="form-control search-input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="O que  procura?" /> <span class="input-group-text search-input-left"><i class="fas fa-search"></i></span>
@@ -56,7 +56,7 @@ $usuarioLogin = $_SESSION['id'];
 
       </div>
 
-      <div class="col-1 d-flex justify-content-end">
+      <div class="col-2 col-md-1 d-flex justify-content-end">
         <div class="dropdown d-flex ">
           <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px">
