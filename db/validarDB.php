@@ -25,6 +25,7 @@ if (!isset( $_SESSION ) ) {
         $_SESSION[ 'ativo' ] = true;
         $_SESSION[ 'login' ] = $login;
         $_SESSION[ 'id' ] = $id_user;
+        $_SESSION[ 'idanuncio' ] = 0;
         //echo "Acesso validado!! Aguarde para ser redirecionado!";
         echo "<meta HTTP-EQUIV='Refresh' CONTENT='0.5;URL=../index.php'>";
       } else {

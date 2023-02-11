@@ -44,7 +44,7 @@ $pesquisaAnuncios->execute();
   <main class="container home-page">
     <h1 class="text-center"></h1>
     <div class=" d-flex m-0 p-0 justify-content-end mb-2">
-      <a href="./pages/cadastroimv.php" class="btn btn-primary">Seja um HOST!</a>
+      <a href="./pages/cadastroimv.php" class="btn btn-primary"> Seja um HOST!</a>
     </div>
     <div class="row gy-3">
 
@@ -74,7 +74,7 @@ $pesquisaAnuncios->execute();
         </div>
          <?php 
          }else{ ?>
-          <a href="./pages/login.php">login</a>
+          <button class="btn btn-primary"><a href="./pages/login.php" style="color: white;">Login</a></button>
         
         <?php }
         ?>

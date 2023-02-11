@@ -1,3 +1,12 @@
+<?php 
+include('../db/conexao.php');
+include ('../db/verificaSS.php');
+$usuarioLogin = $_SESSION['id'];
+
+$idanuncio = $_SESSION['idanuncio'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +40,7 @@
         <div class="textimv">
           <img class="logo" src="../img/logo/MicrosoftTeams-image.png" alt="">
         </div>
+        <form enctype="multipart/form-data" action="cadastroimvimg.php" method="get">
           <div class="container d-flex justify-content-center aviso" style="margin-bottom: 2rem;"><h5 class="titulo">Selecionar todas imagens juntas.</h5></div>
             <input type="file" id="file-input" accept="image/png, image/jpeg" onchange="preview()" multiple>
             <label for="file-input">
@@ -39,7 +49,8 @@
             <p id="num-of-files">Nenhuma foto</p>
             <div id="images"></div>
             
-            <button type="button" class="btn btn-primary btn-lg  btn">Anunciar</button>
+            <button type="submit" class="btn btn-primary btn-lg  btn">Anunciar</button>
+            </form>
       </div>
       <div class="tab d-lg-none d-flex">
         <i class="fas fa-search"></i>

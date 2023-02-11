@@ -1,3 +1,18 @@
+<?php 
+include('../db/conexao.php');
+include ('../db/verificaSS.php');
+
+$usuarioLogin = $_SESSION['id'];
+
+$selectUsuario = ("SELECT * from usuario where usuarioID = $usuarioLogin");
+$selectUsuario2 = $conexao->prepare($selectUsuario);
+$selectUsuario2->execute();
+
+$linha = $selectUsuario2->fetch(PDO::FETCH_OBJ);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,30 +48,30 @@
             <p>para <span style="color: #0057FF;">cadastrar</span> seu imovel preencha o formulario.</p>
         </div>
 
-        <form action="#" method="post" class="needs-validation" novalidate>
+        <form action="./cadastroimvdois.php" method="get" class="needs-validation" novalidate>
             <div class="login d-grid gap-3">
                 <div class="form-outline">
-                  <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu nome" required/>
+                  <input  type="text" id="nameimv" name="txtusu" class="form-control rounded-pill" value="<?php echo $linha->usuarioNome?>" placeholder="Informe seu nome" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu nome</div>
             </div>
             <div class="login d-grid gap-3">
                 <div class="form-outline">
-                  <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu CPF" required/>
+                  <input  type="text" id="nameimv" name="txtCPF" class="form-control rounded-pill" value="<?php echo $linha->usuarioCPF?>" placeholder="Informe seu CPF" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu CPF</div>
             </div>
             <div class="login d-grid gap-3">
                 <div class="form-outline">
-                  <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu Telefone" required/>
+                  <input  type="text" id="nameimv"  name="txtTelefone" class="form-control rounded-pill" value="<?php echo $linha->usuarioTelefone?>" placeholder="Informe seu Telefone" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu telefone</div>
             </div>
             <div class="login d-grid gap-3">
                 <div class="form-outline">
-                  <input  type="text" id="nameimv" class="form-control rounded-pill" placeholder="Informe seu preço pela diaria" required/>
+                  <input  type="text" id="nameimv" name="txtDiaria" class="form-control rounded-pill" placeholder="Informe seu preço pela diaria" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu preço diaria</div>
             </div>
             
         </form>
-        <button class="btnnext" type="submit"><i class="fas fa-chevron-right"></i></button>
+        <button class="btnnext" type="submit"><i class="fas fa-chevron-right"><a href="./cadastroimvdois.php"></a></i></button>
       </div>
       <div class="tab d-lg-none d-flex">
         <i class="fas fa-search"></i>
