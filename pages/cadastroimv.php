@@ -51,17 +51,17 @@ $linha = $selectUsuario2->fetch(PDO::FETCH_OBJ);
         <form action="./cadastroimvdois.php" method="get" class="needs-validation" novalidate>
             <div class="login d-grid gap-3">
                 <div class="form-outline">
-                  <input  type="text" id="nameimv" name="txtusu" class="form-control rounded-pill" value="<?php echo $linha->usuarioNome?>" placeholder="Informe seu nome" required/>
+                  <input  type="text" id="nameimv" name="txtusu" class="form-control rounded-pill check-null" value="<?php echo $linha->usuarioNome?>" placeholder="Informe seu nome" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu nome</div>
             </div>
             <div class="login d-grid gap-3">
                 <div class="form-outline">
-                  <input  type="text" id="nameimv" name="txtCPF" class="form-control rounded-pill" value="<?php echo $linha->usuarioCPF?>" placeholder="Informe seu CPF" required/>
+                  <input  type="text" id="nameimv" name="txtCPF" class="form-control rounded-pill check-null" value="<?php echo $linha->usuarioCPF?>" placeholder="Informe seu CPF" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu CPF</div>
             </div>
             <div class="login d-grid gap-3">
                 <div class="form-outline">
-                  <input  type="text" id="nameimv"  name="txtTelefone" class="form-control rounded-pill" value="<?php echo $linha->usuarioTelefone?>" placeholder="Informe seu Telefone" required/>
+                  <input  type="text" id="nameimv"  name="txtTelefone" class="form-control rounded-pill check-null" value="<?php echo $linha->usuarioTelefone?>" placeholder="Informe seu Telefone" required/>
                     <div class="invalid-feedback ms-2">Por favor, insira seu telefone</div>
             </div>
             <div class="login d-grid gap-3">
