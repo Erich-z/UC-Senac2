@@ -22,7 +22,10 @@ $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/viewhouse.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+  rel="stylesheet"
+/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <title>In-House</title>
@@ -52,6 +55,9 @@ $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
             <div class="card-body d-flex flex-column">
                 <div class="d-flex justify-content-between">
                   <h4 class="card-title"><?php echo $linhaHouse->imoveisCidade?></h4>
+                      <button type="button" class="btn btn-primary btn"><i class="fa-solid fa-comment-dots"></i></button>
+                            
+                
                     <h4><i class="fas fa-star"></i>4,5</h4>
                 </div>
                 <div class="">
@@ -324,7 +330,7 @@ $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
           <i class="fa-sharp fa-solid fa-location-dot"></i>
           <i class="fa-solid fa-envelope"></i>
         </div>
-        
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/swiper.js"></script>

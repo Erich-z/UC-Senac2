@@ -70,3 +70,13 @@ body {
   width: 100%;
   left: 0;
 }
+
+.btn{
+  margin-left: 78rem;
+}
+
+@media (max-width:1023px){
+  .btn{
+    margin-left: 7rem;
+  }
+}
