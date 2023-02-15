@@ -70,3 +70,22 @@ body {
   width: 100%;
   left: 0;
 }
+
+.btn{
+  margin-left: 79rem;
+}
+
+.nomemodal{
+  margin-left: 10rem;
+}
+
+@media (max-width:1023px){
+  .btn{
+    margin-left: 6rem;
+    margin-top: -6px;
+  }
+
+  .nomemodal{
+    margin-left: 6rem;
+  }
+}
