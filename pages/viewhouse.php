@@ -55,12 +55,12 @@ $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
           <h4 class="card-title"><?php echo $linhaHouse->imoveisCidade ?></h4>
 
           <div class="wrapper">
-            <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+          <button type="button" class="btn btn-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
             <i class="fa-solid fa-comment-dots"></i>
-            </button>
+          </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">

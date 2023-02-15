@@ -72,7 +72,7 @@ body {
 }
 
 .btn{
-  margin-left: 78rem;
+  margin-left: 79rem;
 }
 
 .nomemodal{
@@ -81,7 +81,8 @@ body {
 
 @media (max-width:1023px){
   .btn{
-    margin-left: 7rem;
+    margin-left: 6rem;
+    margin-top: -6px;
   }
 
   .nomemodal{
