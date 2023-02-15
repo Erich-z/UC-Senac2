@@ -79,10 +79,13 @@ $linha = $selectUsuario2->fetch(PDO::FETCH_OBJ);
         <i class="fas fa-user"></i>
       </div>
     </main>
+    
+    <script type="text/javascript" src="https://unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js  "></script>
     <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
   ></script>
+  <script src="../js/viacep.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>
