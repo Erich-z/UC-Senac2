@@ -103,9 +103,15 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
                         <h5 class="card-title"><?php echo $linha->imoveisCidade; ?></h5>
                         <div><i class="fas fa-star"></i>4,5</div>
                     </div>
-                    <div class="card-body  position-absolute bottom-20 end-0">
-                        <button type="button" class="btn btn-primary border-0 "
-                            style="background-color: #5AC1FB; text-decoration: none !important;"><a href="#"> Editar</a> </button>
+                    <div class="card-body  position-absolute bottom-20 end-0 mt-2">
+                        
+                        
+                        <a href="#"></a> 
+                        <button type="button" class="btn btn-primary btn-floating"><i class="fa-solid fa-pen-to-square"></i></button>
+                      
+                        <button type="button" class="btn btn-primary btn-floating"><i class="fa-solid fa-trash"></i></button>
+                        
+                            
                     </div>
                     <p class="card-text text-secondary">
                     <?php echo $linha->imoveisBairro; ?>

@@ -2,10 +2,10 @@
 include('../db/conexao.php');
 include ('../db/verificaSS.php');
 $usuarioLogin = $_SESSION['id'];
-
+echo $usuarioLogin;
 $idanuncio = $_SESSION['idanuncio'];
 
-
+echo $idanuncio;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +40,9 @@ $idanuncio = $_SESSION['idanuncio'];
         <div class="textimv">
           <img class="logo" src="../img/logo/MicrosoftTeams-image.png" alt="">
         </div>
-        <form enctype="multipart/form-data" action="cadastroimvimg.php" method="get">
+        <form enctype="multipart/form-data" action="cadastroimvimg.php" method="post">
           <div class="container d-flex justify-content-center aviso" style="margin-bottom: 2rem;"><h5 class="titulo">Selecionar todas imagens juntas.</h5></div>
-            <input type="file" id="file-input" accept="image/png, image/jpeg" onchange="preview()" multiple>
+            <input type="file" id="file-input" name="arquivo[]" accept="image/png, image/jpeg" onchange="preview()" multiple>
             <label for="file-input">
                 <i class="fas fa-upload"></i> &nbsp; Adicionar foto
             </label>
