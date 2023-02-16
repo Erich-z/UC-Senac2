@@ -2,7 +2,7 @@ const inputTxtCep = document.querySelector("[name=txtCEP]");
 const inputTxtRua = document.querySelector("[name=txtRua]");
 const inputTxtBairro = document.querySelector("[name=txtBairro]");
 const inputTxtCidade = document.querySelector("[name=txtCidade]");
-
+const inputTxtNumero = document. querySelector("[name=txtNroCasa]")
 
 function getCep(cepValue) {
   fetch(`https://viacep.com.br/ws/${cepValue}/json/`)
@@ -12,6 +12,7 @@ function getCep(cepValue) {
     inputTxtRua.value = data.logradouro;
     inputTxtBairro.value = data.bairro;
     inputTxtCidade.value = data.localidade;
+    inputTxtNumero.focus();
         
     });
 }
