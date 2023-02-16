@@ -99,5 +99,6 @@ $selectUsuario2->execute();*/
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
   ></script>
   <script src="../js/main.js"></script>
+  <script src="../js/viacep.js"></script>
 </body>
 </html>
