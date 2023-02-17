@@ -49,7 +49,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
     <main class=" mt-5  user-profile container">
 
         <div class="d-flex align-items-center justify-content-center ">
-            <img src="../img/65265871.jpg" alt="" class="rounded-circle img-fluid img-user" />
+            <img src=".<?php echo $perfilUsuario->usuario_foto ?>" alt="" class="rounded-circle img-fluid img-user" />
             <div class="ms-3">
                 <p class="fw-bold mb-0"><?php echo $perfilUsuario->usuarioNome ?></p>
                 <p class="text-muted mb-0"><a href="./edit-profile.php"> Editar perfil</a></p>
