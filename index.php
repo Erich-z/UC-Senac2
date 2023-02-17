@@ -9,6 +9,7 @@ $pesquisaAnuncios->execute();
 
 
 
+
 //$sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE Anuncios_anuncioID = $anuncioID");
 
 //$usuarioLogin = $_SESSION['id'];
@@ -62,7 +63,7 @@ $pesquisaAnuncios->execute();
         ?>
             <div class="dropdown d-flex ">
           <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px">
+            <img src="./img/images.png" class="rounded-circle" alt="" style="width: 45px; height: 45px">
 
           </a>
           <ul class="dropdown-menu user-profile-dropdown p-0">

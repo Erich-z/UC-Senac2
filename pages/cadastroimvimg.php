@@ -18,6 +18,6 @@ for($i=0;$i<$arquivosCount;$i++) {
         $img_concluido = $conexao->prepare($img_cadastra);
         $img_concluido->execute();
 
-        header("Location:index.php");
+        header("Location:../index.php");
     }
 }
