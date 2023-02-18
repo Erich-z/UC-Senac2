@@ -8,7 +8,7 @@ $usuarioLogin = $_SESSION['id'];
 $usuario_nome = $_GET['txtusu'];
 $usuario_cpf = $_GET['txtCPF'];
 $usuario_fone = $_GET['txtTelefone'];
-$usuario_diaria = $_GET['txtDiaria'];
+$usuario_diaria = preg_replace('/[^0-9]/', '', $_GET['txtDiaria']);
 
 
 /*$selectUsuario = ("SELECT * from usuario where usuarioID = $usuarioLogin");
