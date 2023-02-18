@@ -1,7 +1,13 @@
 <?php
 include('../db/conexao.php');
+include ('../db/verificaSS.php');
 $id =  addslashes($_GET['id']);
+$usuarioLogin = $_SESSION['id'];
 
+$selectNameUsuario = ("SELECT * from usuario where usuarioID = $usuarioLogin ");
+$selectName = $conexao->prepare($selectNameUsuario);
+$selectName->execute();
+$linhaUser = $selectName->fetch(PDO::FETCH_OBJ);
 
 $selectImgHouse = ("SELECT imoveis_img from anuncio_imagens where anuncioID = $id");
 $selectImgs = $conexao->prepare($selectImgHouse);
@@ -12,6 +18,10 @@ $selectHouse = ("SELECT * from anuncios WHERE anuncioID = $id");
 $selectCasa = $conexao->prepare($selectHouse);
 $selectCasa->execute();
 $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
+
+$datahoje = date('d/m/Y');
+echo date('h:i:s');
+echo $datahoje;
 ?>
 
 <!DOCTYPE html>
@@ -69,16 +79,20 @@ $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
                   </div>
                   <div class="modal-body">
                   <div class="col-lg-4 nomemodal">
-                    <h5 class="mb-3">Anna Deynah x</h5>
+                    <h5 class="mb-3">Olá, <?php echo $linhaUser->usuarioNome?></h5>
                   </div>
-                    <form action="">
+                    <form action="./comentarioimv.php">
+                      <input type="hidden" name="anuncioID" value="<?php echo $linhaHouse->anuncioID?>">
+                      <input type="hidden" name="anuncianteID" value="<?php echo $linhaHouse->ANusuarioID?>">
+                      <input type="hidden" name="locadorID" value="<?php echo $usuarioLogin?>">
                       <input type="text" id="notacasa" class="form-control rounded-pill mb-3" style="background-color: #d9d9d9" placeholder="Digite uma nota de 0 a 5!" required/>
                       <textarea class="form-control gap-3" style="background-color: #d9d9d9; border: 1px solid black;" id="" rows="3" placeholder="Deixe seu comentário"></textarea>
-                    </form>
+                    
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">enviar</button>
+                    <button type="submit" class="btn btn-primary">enviar</button>
                   </div>
+                  </form>
                 </div>
               </div>
             </div>

@@ -44,7 +44,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
 <body>
     <main class=" mt-5 container">
         <div class="d-flex align-items-center justify-content-center">
-            <img src="../img/images.png" alt="" class="rounded-circle img-fluid img-user opacity-75" />
+            <img src=".<?php echo $perfilUsuario->usuario_foto?>" alt="" class="rounded-circle img-fluid img-user opacity-75" />
             <label for="file-upload-photo-profile" class="file-upload-photo-profile">
                 <i class="fa fa-plus imgAdd">
 
