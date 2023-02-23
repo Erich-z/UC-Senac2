@@ -1,9 +1,10 @@
 <?php
 include('../db/conexao.php');
-
-$id = addslashes($_GET['id']);
+include ('../db/verificaSS.php');
+$anuncioID = 0;
+$usuarioLogin = $_SESSION['id'];
 $sqlEdit = ("SELECT * FROM `anuncios` INNER JOIN anuncio_imagens ON anuncios.anuncioID =
-            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$id'");
+            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$usuarioLogin'");
 $sqlEdita = $conexao->prepare($sqlEdit);
 $sqlEdita->execute();
 
@@ -22,6 +23,7 @@ $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
       rel="stylesheet"
     />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/edithouse.css">
     <title>Document</title>
 </head>
@@ -261,8 +263,12 @@ $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
     <input type="submit" name="btCad" id="btCad" value="Alterar" class=" btn btn-primary buttonenviar">
 </div>  
 </div>
-    
-</main>  
+</main> 
+<div class="tab d-lg-none d-flex">
+    <i class="fas fa-search"></i>
+    <i class="fas fa-heart"></i>
+    <i class="fas fa-user"></i>
+  </div> 
          <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
