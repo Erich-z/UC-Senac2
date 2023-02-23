@@ -1,4 +1,13 @@
 <?php
+include('../db/conexao.php');
+
+$id = addslashes($_GET['id']);
+$sqlEdit = ("SELECT * FROM `anuncios` INNER JOIN anuncio_imagens ON anuncios.anuncioID =
+            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$id'");
+$sqlEdita = $conexao->prepare($sqlEdit);
+$sqlEdita->execute();
+
+$linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
 
 
 ?>
@@ -25,12 +34,8 @@
               <div class="my-4">
                 <h2 class="h3 mb-4 page-title d-flex justify-content-center titleedit">Editar informações da casa</h2>
                   <hr>
-                  <form action="#" method="post" class="needs-validation" novalidate>
-                    <div class="login d-grid gap-2">
-                        <div class="form-outline">
-                          <input  type="text" id="cpfimv" class="form-control rounded-pill" placeholder="Informe seu CPF" required/>
-                           
-                    </div>
+                  <form action="edithouse2.php" method="post" class="needs-validation" novalidate>
+       
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
                           <input  type="text" id="telimv" class="form-control rounded-pill" placeholder="Informe seu Telefone" required/>
@@ -56,12 +61,12 @@
                           <input  type="text" id="" class="form-control rounded-pill" placeholder="Informe sua Cidade" required/>
                             
                     </div>
-                    <span></span>
+                    
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Informe o Número do endereço" required/>
-                            
+                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Informe o Número do endereço" required/>   
                     </div>
+                    <span></span>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
                           <input  type="text" id="" class="form-control rounded-pill" placeholder="Descreva seu imóvel" required/>
@@ -87,7 +92,7 @@
                           <input  type="text" id="" class="form-control rounded-pill" placeholder="Possui algum diferencial ?" required/>
                         
                     </div>
-                </form>
+                  </form>
                 <hr>
                 <div class="d-flex justify-content-center">
                     <h5 class="">Fotos da casa</h5>
@@ -252,7 +257,11 @@
     <!-- Section: Modals -->
   </section>
   <!-- Modal gallery -->
-    </div>
+  <div class="d-grid gap-2 d-md-block">
+    <input type="submit" name="btCad" id="btCad" value="Alterar" class=" btn btn-primary buttonenviar">
+</div>  
+</div>
+    
 </main>  
          <script
     type="text/javascript"
