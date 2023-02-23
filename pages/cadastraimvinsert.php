@@ -12,6 +12,12 @@ $usuario_cpf = $_GET['txtCPF'];
 $usuario_fone = $_GET['txtTelefone'];
 $usuario_diaria = $_GET['txtDiaria'];
 //
+$usuario_atualiza = "UPDATE usuario SET usuarioCPF = $usuario_cpf, usuarioTelefone = $usuario_fone WHERE usuarioID = $usuarioLogin";
+$usuario_atualizou = $conexao->prepare($usuario_atualiza);
+$usuario_atualizou->execute();
+
+
+
 $usuario_CEP = $_GET['txtCEP'];
 $usuario_Rua = $_GET['txtRua'];
 $usuario_Bairro = $_GET['txtBairro'];

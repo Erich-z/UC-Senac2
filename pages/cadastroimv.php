@@ -1,8 +1,14 @@
 <?php 
 include('../db/conexao.php');
 include ('../db/verificaSS.php');
+include ('../db/isLogged.php');
 
+
+if($isLogged){
 $usuarioLogin = $_SESSION['id'];
+}else{
+  header('location: login.php');
+}
 
 $selectUsuario = ("SELECT * from usuario where usuarioID = $usuarioLogin");
 $selectUsuario2 = $conexao->prepare($selectUsuario);

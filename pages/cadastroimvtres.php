@@ -16,7 +16,7 @@ $usuario_Bairro = $_GET['txtBairro'];
 $usuario_Cidade = $_GET['txtCidade'];
 $usuario_NroCasa = $_GET['txtNroCasa'];
 
-
+echo $usuarioLogin;
 
 
 
