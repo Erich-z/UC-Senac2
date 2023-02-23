@@ -1,8 +1,15 @@
 <?php
 include('../db/conexao.php');
 include ('../db/verificaSS.php');
+include ('../db/isLogged.php');
 $id =  addslashes($_GET['id']);
-$usuarioLogin = $_SESSION['id'];
+
+if($isLogged){
+  $usuarioLogin = $_SESSION['id'];
+}else{
+  $usuarioLogin = 0;
+}
+
 
 $selectNameUsuario = ("SELECT * from usuario where usuarioID = $usuarioLogin ");
 $selectName = $conexao->prepare($selectNameUsuario);
@@ -65,10 +72,20 @@ echo $datahoje;
           <h4 class="card-title"><?php echo $linhaHouse->imoveisCidade ?></h4>
 
           <div class="wrapper">
+        
+
+
+
+          <?php 
+          // if($isLogged){
+          //   $usuarioLogin = $_SESSION['id'];
+          //   }else{
+          //     header('location: login.php');
+          //   }?>
           <button type="button" class="btn btn-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
             <i class="fa-solid fa-comment-dots"></i>
           </button>
-
+         <?php  ?>
             <!-- Modal -->
             <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
