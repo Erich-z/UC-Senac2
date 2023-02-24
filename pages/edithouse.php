@@ -120,7 +120,7 @@ $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
             data-ripple-color="light"
           >
             <img
-              src="../img/img1.jpg"
+              src=".<?php echo $linhaEdit->imoveis_img?>" alt=""
               class="w-100"
             />
             <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
