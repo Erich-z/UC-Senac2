@@ -42,6 +42,7 @@ $linha = $selectUsuario2->fetch(PDO::FETCH_OBJ);
     />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/cadastro-imovel.css">
+    <link rel="stylesheet" href="../css//cadastroimovdois.css">
    
 </head>
 <body>
