@@ -1,6 +1,6 @@
 <?php
 include('./db/conexao.php');
-include ('./db/verificaSS.php');
+include('./db/verificaSS.php');
 $anuncioID = 0;
 $sqlRequest = ("SELECT * FROM anuncios");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
@@ -58,35 +58,35 @@ $pesquisaAnuncios->execute();
       </div>
 
       <div class="col-2 col-md-1 d-flex justify-content-end">
-        <?php 
-          if($isLogged) { 
+        <?php
+        if ($isLogged) {
         ?>
-            <div class="dropdown d-flex ">
-          <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <?php
-            $usuarioLogin = $_SESSION['id'];
-            $infoUser = ("SELECT * from usuario where usuarioID = $usuarioLogin");
-            $infoUsers = $conexao->prepare($infoUser);
-            $infoUsers->execute();
-            $linha_User = $infoUsers->fetch(PDO::FETCH_OBJ)
-            ?>
-            <img src="<?php echo $linha_User->usuario_foto?>" class="rounded-circle" alt="" style="width: 45px; height: 45px">
+          <div class="dropdown d-flex ">
+            <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <?php
+              $usuarioLogin = $_SESSION['id'];
+              $infoUser = ("SELECT * from usuario where usuarioID = $usuarioLogin");
+              $infoUsers = $conexao->prepare($infoUser);
+              $infoUsers->execute();
+              $linha_User = $infoUsers->fetch(PDO::FETCH_OBJ)
+              ?>
+              <img src="<?php echo $linha_User->usuario_foto ?>" class="rounded-circle" alt="" style="width: 45px; height: 45px">
 
-          </a>
-          <ul class="dropdown-menu user-profile-dropdown p-0">
-            <li><a class="dropdown-item" href="./pages/user-profile.php">Meu Perfil</a></li>
-            <li><a class="dropdown-item" href="./pages/edit-profile.php">Editar Perfil</a></li>
+            </a>
+            <ul class="dropdown-menu user-profile-dropdown p-0">
+              <li><a class="dropdown-item" href="./pages/user-profile.php">Meu Perfil</a></li>
+              <li><a class="dropdown-item" href="./pages/edit-profile.php">Editar Perfil</a></li>
 
-            <li><a class="dropdown-item bg-danger rounded-bottom text-white" href="./db/logout.php">Sair</a></li>
-          </ul>
-        </div>
-         <?php 
-         }else{ ?>
+              <li><a class="dropdown-item bg-danger rounded-bottom text-white" href="./db/logout.php">Sair</a></li>
+            </ul>
+          </div>
+        <?php
+        } else { ?>
           <button class="btn btn-primary"><a href="./pages/login.php" style="color: white;">Login</a></button>
-        
+
         <?php }
         ?>
-        
+
       </div>
 
       <!--inicio listagem-->
@@ -110,7 +110,7 @@ $pesquisaAnuncios->execute();
                       <i class="fa-regular fa-heart"></i>
 
 
-                    
+
                       <img src="<?php echo $linha2->imoveis_img; ?>" class="card-img-top" alt="..." />
                     </div>
 
@@ -154,11 +154,12 @@ $pesquisaAnuncios->execute();
     <i class="fas fa-heart"></i>
     <i class="fas fa-user"></i>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="./js/masker.js"></script>
   <script src="./js/swiper.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-      <script src="./js/main.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 
 </html>
