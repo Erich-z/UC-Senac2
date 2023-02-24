@@ -7,9 +7,12 @@
   // Loop over them and prevent submission
   Array.prototype.slice.call(forms).forEach((form) => {
     form.addEventListener('submit', (event) => {
+    
       if (!form.checkValidity()) {
+      
         event.preventDefault();
         event.stopPropagation();
+
       }
       form.classList.add('was-validated');
     }, false);
@@ -46,7 +49,9 @@ confirmButton.addEventListener('click', ()=>{
 
 includeReadOnly(inputTxtCPF)
 
+const buttonCad = document.querySelector('[name=btncad]')
 
+<<<<<<< HEAD
 fileUploadImage.addEventListener('change', (event) => {
   const reader = new FileReader();
   // Define o que ocorre quando concluir:
@@ -64,8 +69,20 @@ fileUploadImage.addEventListener('change', (event) => {
 
 })
 const eyeIcon = document.querySelector('.eye-icon')
+=======
+>>>>>>> origin
 const inputPassword = document.querySelectorAll('input[type="password"]')
-console.log(inputPassword)
+
+console.log(buttonCad)
+
+buttonCad.addEventListener('click', (e) => {
+  inputPassword[0].value === inputPassword[1].value ? '' : e.preventDefault()
+
+})
+
+
+console.log(buttonCad)
+const eyeIcon = document.querySelector('.eye-icon')
 
 
   eyeIcon.addEventListener('click', () => {
@@ -80,6 +97,8 @@ console.log(inputPassword)
       })
 
   })
+
+  
 
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
