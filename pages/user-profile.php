@@ -55,14 +55,15 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
                 <p class="text-muted mb-0"><a href="./edit-profile.php"> Editar perfil</a></p>
 
                 <i class="fas  fa-envelope"></i>
-                <i class="fas ms-2 fa-sign-out-alt" style="color: #5AC1FB;"></i>
+                <a href="../db/logout.php"><i class="fas ms-2 fa-sign-out-alt" style="color: #5AC1FB;"></i></a>
             </div>
         </div>
 
         <div class="text-center">
             <h4 class="mb-2 p-3 ">Deseja anunciar seu imovel</br> totalmente de graça?</h4>
-            <button type="button" class="btn btn-primary border-0" style="background-color: #5AC1FB; width: 18rem;">Anunciar
-                imovel</button>
+            <button type="button" class="btn btn-primary border-0" style="background-color: #5AC1FB; width: 18rem;">
+            <a href="./cadastroimv.php" style="text-decoration: none !important; color: black;">Anunciar
+                imovel</a></button>
         </div>
 
         <div class="row gy-3 mt-2 home-page d-flex">
@@ -162,6 +163,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/swiper.js"></script>
+    <script src="../js/delete_announcements.js"></script>
     <script src="../js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>

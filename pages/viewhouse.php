@@ -26,9 +26,9 @@ $selectCasa = $conexao->prepare($selectHouse);
 $selectCasa->execute();
 $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
 
-$datahoje = date('d/m/Y');
-echo date('h:i:s');
-echo $datahoje;
+$datahoje = date('Y-m-d');
+$data2 = date("h:i:sa");
+
 ?>
 
 <!DOCTYPE html>
@@ -102,8 +102,10 @@ echo $datahoje;
                       <input type="hidden" name="anuncioID" value="<?php echo $linhaHouse->anuncioID?>">
                       <input type="hidden" name="anuncianteID" value="<?php echo $linhaHouse->ANusuarioID?>">
                       <input type="hidden" name="locadorID" value="<?php echo $usuarioLogin?>">
-                      <input type="text" id="notacasa" class="form-control rounded-pill mb-3" style="background-color: #d9d9d9" placeholder="Digite uma nota de 0 a 5!" required/>
-                      <textarea class="form-control gap-3" style="background-color: #d9d9d9; border: 1px solid black;" id="" rows="3" placeholder="Deixe seu comentário"></textarea>
+                      <input type="hidden" name="diaID" value="<?php echo $datahoje?>">
+                      <input type="hidden" name="horaID" value="<?php echo $data2?>">
+                      <input type="text" id="notacasa" name="notaCasa" class="form-control rounded-pill mb-3" style="background-color: #d9d9d9" placeholder="Digite uma nota de 0 a 5!" required/>
+                      <textarea class="form-control gap-3" name="comentarioCasa" style="background-color: #d9d9d9; border: 1px solid black;" id="" rows="3" placeholder="Deixe seu comentário"></textarea>
                     
                   </div>
                   <div class="modal-footer">

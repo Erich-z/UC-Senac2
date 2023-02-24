@@ -1,15 +1,23 @@
 <?php 
 include ('../db/conexao.php');
+include ('../db/verificaSS.php');
+include ('../db/isLogged.php');
 
-$usuCad = addslashes ($_GET['txtName']);
-$emailCad = addslashes ($_GET['txtEmail']);
-$senhaCad = addslashes( $_GET['txtSenha']);
+$anuncioID = addslashes ($_GET['anuncioID']);
+$anuncianteID = addslashes ($_GET['anuncianteID']);
+$locadorID = addslashes( $_GET['locadorID']);
+$diaID = addslashes( $_GET['diaID']);
+$horaID = addslashes( $_GET['horaID']);
+$notaCasa = addslashes( $_GET['notaCasa']);
+$comentarioCasa = addslashes( $_GET['comentarioCasa']);
 
-$cadastraUsuario = "INSERT INTO usuario VALUES ( null, '$usuCad', '$emailCad', '$senhaCad', null, null, null, 0)";
-$cadastrou = $conexao->prepare($cadastraUsuario);
+
+$comentarioCadastra = "INSERT INTO anuncio_comentarios VALUES ( null, '$anuncioID', '$anuncianteID', '$locadorID',
+         '$comentarioCasa', '$notaCasa', '$diaID', '$horaID')";
+$cadastrou = $conexao->prepare($comentarioCadastra);
 $cadastrou->execute();
 
-header("Location:login.php");
+header("Location: index.php");
 
 
 
