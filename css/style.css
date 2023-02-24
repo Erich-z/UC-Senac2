@@ -1,6 +1,3 @@
-*{
-  text-decoration: none !important;
-}
 body {
   background-image: url("/img/bunda-azul.png");
   background-repeat: no-repeat;
@@ -30,7 +27,8 @@ body .user-profile .fa-sign-out-alt {
   font-size: 1.3rem;
 }
 body .img-user {
-  width: 9rem;
+  height: 8rem;
+  width: 8rem;
 }
 body .search-input {
   border-right: none;

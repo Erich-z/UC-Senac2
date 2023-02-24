@@ -1,10 +1,16 @@
 <?php
 include('./db/conexao.php');
 include ('./db/verificaSS.php');
+
+$search = "";
+if(isset($_GET['search'])){
+  $search = "WHERE imoveisCidade LIKE '%".$_GET['search']."%' OR imoveisBairro LIKE '%".$_GET['search']."%' ";
+}
 $anuncioID = 0;
-$sqlRequest = ("SELECT * FROM anuncios");
+$sqlRequest = ("SELECT * FROM anuncios $search");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
 $pesquisaAnuncios->execute();
+
 
 
 
@@ -44,17 +50,18 @@ $pesquisaAnuncios->execute();
   <main class="container home-page">
     <h1 class="text-center"></h1>
     <div class=" d-flex m-0 p-0 justify-content-end mb-2">
-      <a href="./pages/cadastroimv.php" class="btn btn-primary">Seja um HOST!</a>
+      <a href="./pages/cadastroimv.php" class="btn btn-primary"> Seja um HOST!</a>
     </div>
     <div class="row gy-3">
 
-      <div class="col-10 col-md-11 d-flex align-items-center">
+      <form action="index.php" method="GET" class="col-10 col-md-11 d-flex align-items-center ">
         <div class="input-group">
 
-          <input type="text" class="form-control search-input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="O que  procura?" /> <span class="input-group-text search-input-left"><i class="fas fa-search"></i></span>
+          <input type="text" name="search" class="form-control search-input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="O que  procura?" />
+           <button type="submit" class="input-group-text search-input-left"><i class="fas fa-search"></i></button>
         </div>
 
-      </div>
+</form>
 
       <div class="col-2 col-md-1 d-flex justify-content-end">
         <?php 
@@ -62,7 +69,14 @@ $pesquisaAnuncios->execute();
         ?>
             <div class="dropdown d-flex ">
           <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px">
+            <?php
+            $usuarioLogin = $_SESSION['id'];
+            $infoUser = ("SELECT * from usuario where usuarioID = $usuarioLogin");
+            $infoUsers = $conexao->prepare($infoUser);
+            $infoUsers->execute();
+            $linha_User = $infoUsers->fetch(PDO::FETCH_OBJ)
+            ?>
+            <img src="<?php echo $linha_User->usuario_foto?>" class="rounded-circle" alt="" style="width: 45px; height: 45px">
 
           </a>
           <ul class="dropdown-menu user-profile-dropdown p-0">
@@ -74,7 +88,7 @@ $pesquisaAnuncios->execute();
         </div>
          <?php 
          }else{ ?>
-          <a href="./pages/login.php">login</a>
+          <button class="btn btn-primary"><a href="./pages/login.php" style="color: white;">Login</a></button>
         
         <?php }
         ?>
@@ -100,9 +114,6 @@ $pesquisaAnuncios->execute();
                   <div class="swiper-slide">
                     <div class="d-flex">
                       <i class="fa-regular fa-heart"></i>
-
-
-                    
                       <img src="<?php echo $linha2->imoveis_img; ?>" class="card-img-top" alt="..." />
                     </div>
 
@@ -120,7 +131,7 @@ $pesquisaAnuncios->execute();
 
               <!-- If we need scrollbar -->
             </div>
-
+            
             <div class="card-body">
               <div class="d-flex justify-content-between">
                 <h5 class="card-title my-1"><?php echo $linha->imoveisCidade; ?></h5>

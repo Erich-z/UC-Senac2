@@ -19,9 +19,58 @@
   });
 })();
 
+const fileUploadImage = document.querySelector('#file-upload-photo-profile')
+const imgUser = document.querySelector('.img-user');
+
+const inputTxtCPF = document.querySelector("[name=txtCPF]")
+
+const checkNull = document.querySelectorAll(".check-null")
+
+const  includeReadOnly =  (input) => {
+  input.value.length > 0 ? input.readOnly = true : ''
+}
+checkNull.forEach(input => includeReadOnly(input))
+
+const deleteCardButtton = document.querySelectorAll('.delete-card-buttton')
+let id_Imovel = 0;
+
+const confirmButton = document.querySelector(".confirm-button")
+
+deleteCardButtton.forEach(data=>{
+
+  data.addEventListener('click', ()=>{
+    id_Imovel = data.id;
+  })
+})
+
+confirmButton.addEventListener('click', ()=>{
+  window.location.href = `../pages/delete-imv.php?id=${id_Imovel}`
+})
+
+includeReadOnly(inputTxtCPF)
 
 const buttonCad = document.querySelector('[name=btncad]')
 
+<<<<<<< HEAD
+=======
+fileUploadImage.addEventListener('change', (event) => {
+  const reader = new FileReader();
+  // Define o que ocorre quando concluir:
+  reader.onload = function() {
+     // Define o `src` do elemento para o resultado:
+
+     console.log(reader.result)
+     imgUser.src = reader.result;
+  }
+  // Lê o arquivo e cria um link (o resultado vai ser enviado para o onload.
+
+  console.log(event.target.files[0])
+  reader.readAsDataURL(event.target.files[0]);
+
+
+})
+const eyeIcon = document.querySelector('.eye-icon')
+>>>>>>> d02c4a6df4d9ce9345cc9790184beef3df567362
 const inputPassword = document.querySelectorAll('input[type="password"]')
 
 console.log(buttonCad)
