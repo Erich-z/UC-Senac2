@@ -5,9 +5,9 @@ include ('../db/verificaSS.php');
 
 $usuarioLogin = $_SESSION['id'];
 
-$usuario_nome = $_GET['txtusu'];
-$usuario_cpf = $_GET['txtCPF'];
-$usuario_fone = $_GET['txtTelefone'];
+$usuario_nome = preg_replace('/[^0-9]/', '',$_GET['txtusu']);
+$usuario_cpf = preg_replace('/[^0-9]/', '',$_GET['txtCPF']); 
+$usuario_fone = preg_replace('/[^0-9]/', '',$_GET['txtTelefone']); 
 $usuario_diaria = preg_replace('/[^0-9]/', '', $_GET['txtDiaria']);
 
 
