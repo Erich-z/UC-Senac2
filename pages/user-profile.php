@@ -1,8 +1,13 @@
 <?php
 include('../db/conexao.php');
 include('../db/verificaSS.php');
+include ('../db/isLogged.php');
+if($isLogged){
+    $usuarioLogin = $_SESSION['id'];
+  }else{
+    $usuarioLogin = 0;
+  }
 $anuncioID = 0;
-$usuarioLogin = $_SESSION['id'];
 $sqlRequest = ("SELECT * FROM anuncios where ANusuarioID = $usuarioLogin");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
 $pesquisaAnuncios->execute();
@@ -105,7 +110,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
 
 
                                 <a href="#"></a>
-                                <button type="button" class="btn btn-primary btn-floating"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button type="button" class="btn btn-primary btn-floating"> <a href="./edithouse.php?id=<?php echo $anuncioID; ?>"><i class="fa-solid fa-pen-to-square"></i></a></button>
 
                                 <button type="button" id="<?php echo $anuncioID?>" class="btn btn-primary btn-floating delete-card-buttton" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></button>
 

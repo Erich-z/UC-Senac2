@@ -1,10 +1,17 @@
 <?php
 include('../db/conexao.php');
 include ('../db/verificaSS.php');
+include ('../db/isLogged.php');
+if($isLogged){
+  $usuarioLogin = $_SESSION['id'];
+}else{
+  $usuarioLogin = 0;
+}
 $anuncioID = 0;
-$usuarioLogin = $_SESSION['id'];
-$sqlEdit = ("SELECT * FROM `anuncios` INNER JOIN anuncio_imagens ON anuncios.anuncioID =
-            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$usuarioLogin'");
+$anuncioID = $_GET['id'];
+//echo $anuncioID;
+$sqlEdit = ("SELECT * FROM anuncios INNER JOIN anuncio_imagens ON anuncios.anuncioID =
+            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$anuncioID' AND anuncios.ANusuarioID = '$usuarioLogin'");
 $sqlEdita = $conexao->prepare($sqlEdit);
 $sqlEdita->execute();
 
@@ -40,58 +47,58 @@ $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
        
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="telimv" class="form-control rounded-pill" placeholder="Informe seu Telefone" required/>
+                          <input  type="text" id="telimv" class="form-control rounded-pill" placeholder="Telefone"  required/>
                             
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="cepimv" class="form-control rounded-pill" placeholder="Informe seu CEP" required/>
+                          <input  type="text" id="cepimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCep?>" required/>
                             
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="ruaimv" class="form-control rounded-pill" placeholder="Informe sua Rua" required/>
+                          <input  type="text" id="ruaimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisRua?>" required/>
                             
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="bairroimv" class="form-control rounded-pill" placeholder="Informe seu Bairro" required/>
+                          <input  type="text" id="bairroimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisBairro?>" required/>
                             
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Informe sua Cidade" required/>
+                          <input  type="text" id="" class="form-control rounded-pill"value="<?php echo $linhaEdit->imoveisCidade?>" required/>
                             
                     </div>
                     
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Informe o Número do endereço" required/>   
+                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisNumero?>" required/>   
                     </div>
                     <span></span>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Descreva seu imóvel" required/>
+                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDescricao?>"required/>
                             
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Número de quartos" required/>
+                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisQuarto?>" required/>
                             
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Número de banheiros" required/>
+                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisBanheiro?>" required/>
                         
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Número de cozinhas" required/>
+                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCozinha?>" required/>
                         
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" placeholder="Possui algum diferencial ?" required/>
+                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDiferencial?>"required/>
                         
                     </div>
                   </form>
