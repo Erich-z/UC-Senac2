@@ -10,12 +10,17 @@ if($isLogged){
 $anuncioID = 0;
 $anuncioID = $_GET['id'];
 //echo $anuncioID;
-$sqlEdit = ("SELECT * FROM anuncios INNER JOIN anuncio_imagens ON anuncios.anuncioID =
-            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$anuncioID' AND anuncios.ANusuarioID = '$usuarioLogin'");
+$sqlEdit = ("SELECT * FROM anuncios WHERE ANusuarioID = '$usuarioLogin' ");
+//$sqlEdit = ("SELECT * FROM anuncios INNER JOIN anuncio_imagens ON anuncios.anuncioID =
+//            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$anuncioID' AND anuncios.ANusuarioID = '$usuarioLogin'");
 $sqlEdita = $conexao->prepare($sqlEdit);
 $sqlEdita->execute();
 
 $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
+
+$sqlImgEdit = ("SELECT * FROM anuncio_imagens WHERE anuncioID = '$usuarioLogin'");
+$sqlImgEdita = $conexao->prepare($sqlImgEdit);
+$sqlImgEdita->execute();
 
 
 ?>
@@ -43,13 +48,7 @@ $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
               <div class="my-4">
                 <h2 class="h3 mb-4 page-title d-flex justify-content-center titleedit">Editar informações da casa</h2>
                   <hr>
-                  <form action="edithouse2.php" method="post" class="needs-validation" novalidate>
-       
-                    <div class="login d-grid gap-2">
-                        <div class="form-outline">
-                          <input  type="text" id="telimv" class="form-control rounded-pill" placeholder="Telefone"  required/>
-                            
-                    </div>
+                  <form action="edithouse2.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
                           <input  type="text" id="cepimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCep?>" required/>
@@ -106,70 +105,37 @@ $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
                 <div class="d-flex justify-content-center">
                     <h5 class="">Fotos da casa</h5>
                 </div>
+                <div class="d-flex justify-content-center">
+                    <p class="">Para alterar a foto click, na imagem desejada!</p>
+                </div>
               </div>
           </div>
       </div>
 <!-- Modal gallery -->
-<section class="">
-    <!-- Section: Images -->
+<!-- Section: Images -->
+
     <section class="">
       <div class="row">
+        <?php while ($linhaImg = $sqlImgEdita->fetch(PDO::FETCH_OBJ)) { ?>
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <div
-            class="bg-image hover-overlay ripple shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
+          <div class="imageContainer">
+          
             <img
-              src=".<?php echo $linhaEdit->imoveis_img?>" alt=""
-              class="w-100"
+              src=".<?php echo $linhaImg->imoveis_img?>" alt=""
+              class="imgPhoto"
             />
-            <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-            </a>
+            <input type="file" class="flImage" name="fImage" accept="image/*">
+           </div> 
           </div>
-        </div>
-  
+          <?php } ?>    
+      
 
     </section>
+   
     <!-- Section: Images -->
   
     <!-- Section: Modals -->
-    <section class="">
-      <!-- Modal 1 -->
-      <div
-        class="modal fade"
-        id="exampleModal1"
-        tabindex="-1"
-        aria-labelledby="exampleModal1Label"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="">
-                <div class="container d-flex justify-content-center aviso" style="margin-bottom: 2rem;"><h5 class="titulo">Selecionar todas imagens juntas.</h5></div>
-                <input type="file" id="file-input" accept="image/png, image/jpeg" onchange="preview()" multiple>
-                <label for="file-input">
-                    <i class="fas fa-upload"></i> &nbsp; Adicionar foto
-                </label>
-                <p id="num-of-files">Nenhuma foto</p>
-                <div id="images"></div>
-                
-                <button type="button" class="btn btn-primary btn-lg  btn">Anunciar</button>
-          </div>
-            </div>
-  
-            <div class="text-center py-3">
-              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                Enviar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal 2 -->
-    </section>
-    <!-- Section: Modals -->
-  </section>
+    
   <!-- Modal gallery -->
   <div class="d-grid gap-2 d-md-block">
     <input type="submit" name="btCad" id="btCad" value="Alterar" class=" btn btn-primary buttonenviar">
@@ -180,7 +146,8 @@ $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
     <i class="fas fa-search"></i>
     <i class="fas fa-heart"></i>
     <i class="fas fa-user"></i>
-  </div> 
+  </div>
+  <script src="../js/edithouse.js"></script> 
          <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
