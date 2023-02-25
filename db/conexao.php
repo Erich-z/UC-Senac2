@@ -1,7 +1,7 @@
 <?php
     $SGBD_Escolhido = "MySQL";
     //$SGBD_Escolhido = "SQLServer";
-    $servidorSQLSrv = 'localhost';
+    $servidorSQLSrv = 'mysqlinhouse.mysql.database.azure.com';
     $servidorMySQL = 'mysqlinhouse.mysql.database.azure.com'; //localhost
     $bancoDeDadosSQLSrv = 'inhouse';
     $bancoDeDadosMySQL = 'inhouse';
