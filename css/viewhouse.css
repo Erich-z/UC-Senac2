@@ -70,22 +70,28 @@ body {
   width: 100%;
   left: 0;
 }
-
+.wrapper{
+  
+ 
+  right: 6rem;
+  border: 3px #000 solid;
+}
 .btn{
-  margin-left: 79rem;
+
+  margin-left: 0rem;
 }
 
 .nomemodal{
   margin-left: 10rem;
 }
 
-@media (max-width:1023px){
+/* @media (max-width:1023px){
   .btn{
     margin-left: 6rem;
-    margin-top: -6px;
+    margin-top: -9px;
   }
 
   .nomemodal{
     margin-left: 6rem;
   }
-}
+} */
