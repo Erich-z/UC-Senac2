@@ -8,17 +8,19 @@ if($isLogged){
   $usuarioLogin = 0;
 }
 $anuncioID = 0;
-$anuncioID = $_GET['id'];
+$anuncioID = addslashes($_GET['id']);
 //echo $anuncioID;
-$sqlEdit = ("SELECT * FROM anuncios WHERE ANusuarioID = '$usuarioLogin' ");
+$sqlEdit = ("SELECT * FROM anuncios where ANusuarioID = '$usuarioLogin'");
+
+
 //$sqlEdit = ("SELECT * FROM anuncios INNER JOIN anuncio_imagens ON anuncios.anuncioID =
-//            anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$anuncioID' AND anuncios.ANusuarioID = '$usuarioLogin'");
+  //          anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$anuncioID' AND anuncios.ANusuarioID = '$usuarioLogin'");
 $sqlEdita = $conexao->prepare($sqlEdit);
 $sqlEdita->execute();
 
 $linhaEdit = $sqlEdita->fetch(PDO::FETCH_OBJ);
 
-$sqlImgEdit = ("SELECT * FROM anuncio_imagens WHERE anuncioID = '$usuarioLogin'");
+$sqlImgEdit = ("SELECT * FROM anuncio_imagens WHERE anuncioID = '$anuncioID'");
 $sqlImgEdita = $conexao->prepare($sqlImgEdit);
 $sqlImgEdita->execute();
 
@@ -48,57 +50,58 @@ $sqlImgEdita->execute();
               <div class="my-4">
                 <h2 class="h3 mb-4 page-title d-flex justify-content-center titleedit">Editar informações da casa</h2>
                   <hr>
-                  <form action="edithouse2.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                  <form action="edit-house.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="cepimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCep?>" required/>
-                            
+                          <input  type="text" name="cepimv" id="cepimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCep?>"  required/>
+                          <label class="form-label" for="form12">CEP</label> 
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="ruaimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisRua?>" required/>
-                            
+                          <input  type="text" name="ruaimv" id="ruaimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisRua?>" required/>
+                          <label class="form-label" for="form12">Rua</label>   
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="bairroimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisBairro?>" required/>
-                            
+                          <input  type="text" name="bairroimv" id="bairroimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisBairro?>" required/>
+                          <label class="form-label" for="form12">Bairro</label>     
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill"value="<?php echo $linhaEdit->imoveisCidade?>" required/>
-                            
+                          <input  type="text" name="cidadeimv" id="cidadeimv" class="form-control rounded-pill"value="<?php echo $linhaEdit->imoveisCidade?>" required/>
+                          <label class="form-label" for="form12">Cidade</label>     
                     </div>
                     
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisNumero?>" required/>   
+                          <input  type="text" name="numeroimov" id="numeroimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisNumero?>" required/>   
+                          <label class="form-label" for="form12">Número</label>   
                     </div>
                     <span></span>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDescricao?>"required/>
-                            
+                          <input  type="text" name="descimov" id="descimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDescricao?>"required/>
+                          <label class="form-label" for="form12">Descrição</label>     
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisQuarto?>" required/>
-                            
+                          <input  type="text" name="quartoimov" id="quartoimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisQuarto?>" required/>
+                          <label class="form-label" for="form12">Quat.quartos</label>     
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisBanheiro?>" required/>
-                        
+                          <input  type="text" name="banheiroimov" id="banheiroimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisBanheiro?>" required/>
+                          <label class="form-label" for="form12">Quat.banheiro</label>
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCozinha?>" required/>
-                        
+                          <input  type="text" name="cozinhaimov" id="cozinhaimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCozinha?>" required/>
+                          <label class="form-label" for="form12">Quat.cozinha</label>
                     </div>
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
-                          <input  type="text" id="" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDiferencial?>"required/>
-                        
+                          <input  type="text" name="difimov" id="difimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDiferencial?>"required/>
+                          <label class="form-label" for="form12">Algum diferencial</label>
                     </div>
                   </form>
                 <hr>
