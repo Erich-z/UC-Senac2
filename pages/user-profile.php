@@ -159,7 +159,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
     <div class="tab">
         <i class="fas fa-search"></i>
         <i class="fas fa-heart"></i>
-        <i class="fas fa-user"></i>
+       <a href="../index.php"> <i class="fas fa-user"></i></a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/swiper.js"></script>

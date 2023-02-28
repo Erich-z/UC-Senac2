@@ -138,7 +138,7 @@ $pesquisaAnuncios->execute();
                 <?php echo $linha->imoveisBairro; ?>
               </p>
               <p class="card-text text-secondary">
-                <span class="text-dark"><strong>R$</strong></span> <?php echo $linha->imoveisDiaria; ?>/Noite
+                <span class="text-dark"><strong>R$</strong></span> <?php echo $linha->imoveisDiaria; ?>
               </p>
             </div>
           </a>
