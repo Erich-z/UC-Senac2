@@ -103,6 +103,11 @@ $sqlImgEdita->execute();
                           <input  type="text" name="difimov" id="difimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDiferencial?>"required/>
                           <label class="form-label" for="form12">Algum diferencial</label>
                     </div>
+                    <div class="login d-grid gap-2">
+                        <div class="form-outline">
+                          <input  type="text" name="precoimov" id="precoimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDiaria?>"required/>
+                          <label class="form-label" for="form12">Preço do imovel</label>
+                    </div>
                   </form>
                 <hr>
                 <div class="d-flex justify-content-center">
@@ -141,7 +146,7 @@ $sqlImgEdita->execute();
     
   <!-- Modal gallery -->
   <div class="d-grid gap-2 d-md-block">
-    <input type="submit" name="btCad" id="btCad" value="Alterar" class=" btn btn-primary buttonenviar">
+    <input type="submit" name="btCad" id="btCad" value="Alterar" class="btn btn-primary buttonenviar">
 </div>  
 </div>
 </main> 
