@@ -10,11 +10,9 @@ if($isLogged){
 $anuncioID = 0;
 $anuncioID = addslashes($_GET['id']);
 //echo $anuncioID;
-$sqlEdit = ("SELECT * FROM anuncios where ANusuarioID = '$usuarioLogin'");
+echo $usuarioLogin;
+$sqlEdit = ("SELECT * FROM anuncios where anuncioID = '$anuncioID'");
 
-
-//$sqlEdit = ("SELECT * FROM anuncios INNER JOIN anuncio_imagens ON anuncios.anuncioID =
-  //          anuncio_imagens.imagemID WHERE anuncios.anuncioID = '$anuncioID' AND anuncios.ANusuarioID = '$usuarioLogin'");
 $sqlEdita = $conexao->prepare($sqlEdit);
 $sqlEdita->execute();
 
@@ -108,7 +106,7 @@ $sqlImgEdita->execute();
                           <input  type="text" name="precoimov" id="precoimov" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisDiaria?>"required/>
                           <label class="form-label" for="form12">Preço do imovel</label>
                     </div>
-                  </form>
+                  
                 <hr>
                 <div class="d-flex justify-content-center">
                     <h5 class="">Fotos da casa</h5>
@@ -132,21 +130,16 @@ $sqlImgEdita->execute();
               src=".<?php echo $linhaImg->imoveis_img?>" alt=""
               class="imgPhoto"
             />
-            <input type="file" class="flImage" name="fImage" accept="image/*">
+            <input type="file" class="flImage" name="arquivo[]" accept="image/*">
            </div> 
           </div>
           <?php } ?>    
       
 
     </section>
-   
-    <!-- Section: Images -->
-  
-    <!-- Section: Modals -->
-    
-  <!-- Modal gallery -->
+    </form>
   <div class="d-grid gap-2 d-md-block">
-    <input type="submit" name="btCad" id="btCad" value="Alterar" class="btn btn-primary buttonenviar">
+    <button type="button" name="btCad" id="btCad" class="btn btn-primary">Alterar</button>
 </div>  
 </div>
 </main> 

@@ -1,14 +1,11 @@
 <?php
 include('../db/conexao.php');
 include ('../db/verificaSS.php');
-$idusuario = $_SESSION[ 'id' ];  
+$usuarioLogin = $_SESSION[ 'id' ];  
+$idanuncio = $_SESSION['idanuncio'];
 
 $conexao->beginTransaction();
-
-
-if(isset($_POST["btCad"]))
-{  
-    
+     
 $imoveisCep = addslashes($_POST['cepimv']);
 $imoveisRua = addslashes($_POST['ruaimv']);
 $imoveisBairro = addslashes($_POST['bairroimv']);
@@ -27,7 +24,9 @@ $editHouseUp = $conexao->prepare("UPDATE anuncios SET imoveisDiaria = :imoveisDi
                                   imoveisCidade = :imoveisCidade, imoveisNumero = :imoveisNumero,
                                   imoveisQuarto = :imoveisQuarto, imoveisBanheiro = :imoveisBanheiro,
                                   imoveisCozinha = :imoveisCozinha,
-                                  imoveisDiferencial = :imoveisDiferencial WHERE anuncioID = :idusuario");
+                                  imoveisDiferencial = :imoveisDiferencial WHERE anuncioID = :usuarioLogin");
+
+
 $parametrosU =
 [
     'imoveisDiaria' => $imoveisDiaria,
@@ -41,16 +40,25 @@ $parametrosU =
     'imoveisBanheiro' => $imoveisBanheiro,
     'imoveisCozinha' => $imoveisCozinha,
     'imoveisDiferencial' => $imoveisDiferencial,
-    'idusuario' => $idusuario,
+    'usuarioLogin' => $usuarioLogin,
 ];
-try
-{
-    $comandoU->execute($parametrosU);
-    
-}
 
+$editHouseUp->execute($parametrosU);
 
+$arquivosCount = count($_FILES['arquivo']['name']);
 
-}
+for($i=0;$i<$arquivosCount;$i++) {
+    if(in_array($_FILES['arquivo']['type'][$i], array('image/jpeg','image/png','image/jpg'))) {
+        //$nome = $_FILES['arquivo']["name"];
+        $nome = md5(time().rand(0,1000)).'.jpg';
+        move_uploaded_file($_FILES['arquivo']['tmp_name'][$i],'../img/'.$nome);
 
+        $img_cadastra = "UPDATE anuncio_imagens SET (null, $idanuncio, $usuarioLogin, './img/$nome')";
+        $img_concluido = $conexao->prepare($img_cadastra);
+        $img_concluido->execute();
+    }
+} 
+
+$conexao->commit();
+ header("Location:../viewhouse.php");
 ?>
