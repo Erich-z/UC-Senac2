@@ -8,7 +8,7 @@ if (isset($_GET['search'])) {
 }
 
 $anuncioID = 0;
-$sqlRequest = ("SELECT * FROM anuncios");
+$sqlRequest = ("SELECT * FROM anuncios $search");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
 $pesquisaAnuncios->execute();
 
