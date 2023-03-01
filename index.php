@@ -1,6 +1,12 @@
 <?php
 include('./db/conexao.php');
 include('./db/verificaSS.php');
+
+$search = "";
+if (isset($_GET['search'])) {
+  $search = "WHERE imoveisCidade LIKE '%" . $_GET['search'] . "%' OR imoveisBairro LIKE '%" . $_GET['search'] . "%' ";
+}
+
 $anuncioID = 0;
 $sqlRequest = ("SELECT * FROM anuncios");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
@@ -49,13 +55,14 @@ $pesquisaAnuncios->execute();
     </div>
     <div class="row gy-3">
 
-      <div class="col-10 col-md-11 d-flex align-items-center">
+      <form action="index.php" method="GET" class="col-10 col-md-11 d-flex align-items-center ">
         <div class="input-group">
 
-          <input type="text" class="form-control search-input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="O que  procura?" /> <span class="input-group-text search-input-left"><i class="fas fa-search"></i></span>
+          <input type="text" name="search" class="form-control search-input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="O que  procura?" />
+          <button type="submit" class="input-group-text search-input-left"><i class="fas fa-search"></i></button>
         </div>
 
-      </div>
+      </form>
 
       <div class="col-2 col-md-1 d-flex justify-content-end">
         <?php
