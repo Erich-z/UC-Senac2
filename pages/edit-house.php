@@ -1,12 +1,13 @@
 <?php
 include('../db/conexao.php');
 include ('../db/verificaSS.php');
-$usuarioLogin = $_SESSION['id'];  
-$anuncioID = $_SESSION['id'];
+$usuarioLogin = $_SESSION['id'];
+
 
 
 $conexao->beginTransaction();
-     
+$ok = true;
+$anuncioSelecionado = addslashes($_POST['idimovelatt']);    
 $imoveisCep = addslashes($_POST['cepimv']);
 $imoveisRua = addslashes($_POST['ruaimv']);
 $imoveisBairro = addslashes($_POST['bairroimv']);
@@ -25,9 +26,11 @@ $editHouseUp = $conexao->prepare("UPDATE anuncios SET imoveisDiaria = :imoveisDi
                                   imoveisCidade = :imoveisCidade, imoveisNumero = :imoveisNumero,
                                   imoveisQuarto = :imoveisQuarto, imoveisBanheiro = :imoveisBanheiro,
                                   imoveisCozinha = :imoveisCozinha,
-                                  imoveisDiferencial = :imoveisDiferencial WHERE anuncioID = :usuarioLogin");
+                                  imoveisDiferencial = :imoveisDiferencial WHERE anuncioID = :anuncioID");
 
-
+?> 
+<script> console.log(<?php $anuncioSelecionado ?>); </script>
+<?php
 $parametrosU =
 [
     'imoveisDiaria' => $imoveisDiaria,
@@ -41,10 +44,17 @@ $parametrosU =
     'imoveisBanheiro' => $imoveisBanheiro,
     'imoveisCozinha' => $imoveisCozinha,
     'imoveisDiferencial' => $imoveisDiferencial,
-    'usuarioLogin' => $usuarioLogin,
+    'anuncioID' => $anuncioSelecionado,
 ];
+try
+{
+    $editHouseUp->execute($parametrosU);    
+}
+catch (PDOException $erroU)
+{
+    $ok = false;   
+}
 
-$editHouseUp->execute($parametrosU);
 
 $arquivosCount = count($_FILES['arquivo']['name']);
 
@@ -53,13 +63,29 @@ for($i=0;$i<$arquivosCount;$i++) {
         //$nome = $_FILES['arquivo']["name"];
         $nome = md5(time().rand(0,1000)).'.jpg';
         move_uploaded_file($_FILES['arquivo']['tmp_name'][$i],'../img/'.$nome);
+        $i+1;
+        $img_cadastra = "UPDATE anuncio_imagens SET  imoveis_img = './img/$nome' WHERE anuncioID = '$anuncioSelecionado' AND imagemID = '$i' AND usuarioID = $usuarioLogin";
+        $i-1;
+        try
+        {
+            $img_concluido = $conexao->prepare($img_cadastra);
+            $img_concluido->execute();   
+        }
+        catch(PDOException $erroU)
+        {
+            $ok = false;
+        }
 
-        $img_cadastra = "UPDATE anuncio_imagens SET anuncioID = '$anuncioID', usuarioID = '$usuarioLogin', imoveis_img = './img/$nome' WHERE anuncioID = '$usuarioLogin'";
-        $img_concluido = $conexao->prepare($img_cadastra);
-        $img_concluido->execute();
     }
 } 
 
-$conexao->commit();
+if($ok)
+{
+    $conexao->commit();
+}
+else
+{
+    $conexao->rollBack();
+}
  header("Location:./user-profile.php");
 ?>

@@ -7,10 +7,10 @@ if($isLogged){
 }else{
   $usuarioLogin = 0;
 }
-$anuncioID = 0;
+
 $anuncioID = addslashes($_GET['id']);
-//echo $anuncioID;
-//echo $usuarioLogin;
+echo $anuncioID;
+echo $usuarioLogin;
 $sqlEdit = ("SELECT * FROM anuncios where anuncioID = '$anuncioID'");
 
 $sqlEdita = $conexao->prepare($sqlEdit);
@@ -49,7 +49,8 @@ $sqlImgEdita->execute();
                 <h2 class="h3 mb-4 page-title d-flex justify-content-center titleedit">Editar informações da casa</h2>
                   <hr>
                   <form action="./edit-house.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
-                    <div class="login d-grid gap-2">
+                    <input type="hidden" name="idimovelatt" value="<?php echo $anuncioID ?>">
+                  <div class="login d-grid gap-2">
                         <div class="form-outline">
                           <input  type="text" name="cepimv" id="cepimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCep?>"  required/>
                           <label class="form-label" for="form12">CEP</label> 
@@ -130,7 +131,7 @@ $sqlImgEdita->execute();
               src=".<?php echo $linhaImg->imoveis_img?>" alt=""
               class="imgPhoto"
             />
-            <input type="file" class="flImage" name="arquivo[]" accept="image/*">
+            <input type="file" class="flImage" name="arquivo[]" accept="image/*" multiple>
            </div> 
           </div>
           <?php } ?>    
