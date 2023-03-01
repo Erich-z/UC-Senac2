@@ -166,6 +166,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
         <i class="fas fa-heart"></i>
         <a href="../index.php"> <i class="fas fa-user"></i></a>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/swiper.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -176,6 +177,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
         crossorigin="anonymous"></script>
 
     <script src="../js/main.js"></script>
+    <script src="../js/change-photo.js"></script>
 
 
 </html>
