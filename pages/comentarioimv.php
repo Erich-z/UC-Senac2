@@ -17,7 +17,7 @@ $comentarioCadastra = "INSERT INTO anuncio_comentarios VALUES ( null, '$anuncioI
 $cadastrou = $conexao->prepare($comentarioCadastra);
 $cadastrou->execute();
 
-header("Location: index.php");
+header("Location: ../index.php");
 
 
 
