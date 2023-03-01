@@ -10,7 +10,7 @@ if($isLogged){
 $anuncioID = 0;
 $anuncioID = addslashes($_GET['id']);
 //echo $anuncioID;
-echo $usuarioLogin;
+//echo $usuarioLogin;
 $sqlEdit = ("SELECT * FROM anuncios where anuncioID = '$anuncioID'");
 
 $sqlEdita = $conexao->prepare($sqlEdit);
@@ -48,7 +48,7 @@ $sqlImgEdita->execute();
               <div class="my-4">
                 <h2 class="h3 mb-4 page-title d-flex justify-content-center titleedit">Editar informações da casa</h2>
                   <hr>
-                  <form action="edit-house.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                  <form action="./edit-house.php" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <div class="login d-grid gap-2">
                         <div class="form-outline">
                           <input  type="text" name="cepimv" id="cepimv" class="form-control rounded-pill" value="<?php echo $linhaEdit->imoveisCep?>"  required/>
@@ -137,10 +137,11 @@ $sqlImgEdita->execute();
       
 
     </section>
+    <div class="d-grid gap-2 d-md-block">
+    <button type="submit" name="btCad" id="btCad" class="btn btn-primary">Alterar</button>
+</div> 
     </form>
-  <div class="d-grid gap-2 d-md-block">
-    <button type="button" name="btCad" id="btCad" class="btn btn-primary">Alterar</button>
-</div>  
+   
 </div>
 </main> 
 <div class="tab d-lg-none d-flex">
