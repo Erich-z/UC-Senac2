@@ -29,6 +29,7 @@ $linhaHouse = $selectCasa->fetch(PDO::FETCH_OBJ);
 $datahoje = date('Y-m-d');
 $data2 = date("h:i:sa");
 
+
 ?>
 
 <!DOCTYPE html>
@@ -173,38 +174,35 @@ $data2 = date("h:i:sa");
         <div class="carousel-inner py-4">
           <!-- Single item -->
           <div class="carousel-item active">
-            <div class="container">
-              <div class="row pb-4">
-                <div class="col-lg-4">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">Anna Deynah x</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                    officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                  </ul>
-                </div>
 
-                <div class="col-lg-4 d-none d-lg-block">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">John Doe</h5>
+            <div class="container">
+              
+            <div class="row pb-4">
+
+            <?php 
+              $selectComentario = ("SELECT * FROM anuncio_comentarios where anuncioID = $id");
+              $selectComentario2 = $conexao->prepare($selectComentario);
+              $selectComentario2->execute();
+              while ($linhaComentario = $selectComentario2->fetch(PDO::FETCH_OBJ)) { 
+                
+              
+            
+             $select_Usuario = ("SELECT * FROM usuario where usuarioID = $linhaComentario->LCusuarioID");
+             $select_Usuario2 = $conexao->prepare($select_Usuario);
+             $select_Usuario2->execute();
+             $linha_usuario = $select_Usuario2->fetch(PDO::FETCH_OBJ);
+            
+            
+                ?>
+              <div class="col-lg-4 d-none d-lg-block">
+                  <img class="rounded-circle shadow-1-strong mb-4" src=".<?php echo $linha_usuario->usuario_foto;?>" alt="avatar" style="width: 150px;" />
+                  <h5 class="mb-3"> <?php echo $linha_usuario->usuarioNome; ?></h5>
                   <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted"> <?php echo $linhaComentario->comentatariodata;?></small>
                   </p>
                   <p class="text-muted">
                     <i class="fas fa-quote-left pe-2"></i>
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                    suscipit laboriosam, nisi ut aliquid commodi.
+                   <?php echo $linhaComentario->comentarioDescricao;?>
                   </p>
                   <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
                     <li><i class="fas fa-star fa-sm"></i></li>
@@ -216,167 +214,24 @@ $data2 = date("h:i:sa");
                     </li>
                   </ul>
                 </div>
+             
+             <?php 
+              }
+            ?>
 
-                <div class="col-lg-4 d-none d-lg-block">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">Maria Kate</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                    praesentium voluptatum deleniti atque corrupti.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="far fa-star fa-sm"></i></li>
-                  </ul>
-                </div>
+
+                
+
+
+              
+
+
               </div>
             </div>
           </div>
 
-          <!-- Single item -->
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row pb-4">
-                <div class="col-lg-4">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(3).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">John Doe</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                    officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-4 d-none d-lg-block">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">Alex Rey</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                    suscipit laboriosam, nisi ut aliquid commodi.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li>
-                      <i class="fas fa-star-half-alt fa-sm"></i>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-4 d-none d-lg-block">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(5).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">Maria Kate</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                    praesentium voluptatum deleniti atque corrupti.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="far fa-star fa-sm"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single item -->
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row pb-4">
-                <div class="col-lg-4">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">Anna Deynah</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                    officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-4 d-none d-lg-block">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">John Doe</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                    suscipit laboriosam, nisi ut aliquid commodi.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li>
-                      <i class="fas fa-star-half-alt fa-sm"></i>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-4 d-none d-lg-block">
-                  <img class="rounded-circle shadow-1-strong mb-4" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3">Maria Kate</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                    praesentium voluptatum deleniti atque corrupti.
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="far fa-star fa-sm"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+       
+      
         </div>
         <!-- Inner -->
       </div>
