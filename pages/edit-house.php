@@ -63,9 +63,9 @@ for($i=0;$i<$arquivosCount;$i++) {
         //$nome = $_FILES['arquivo']["name"];
         $nome = md5(time().rand(0,1000)).'.jpg';
         move_uploaded_file($_FILES['arquivo']['tmp_name'][$i],'../img/'.$nome);
-        $i+1;
+        $i=$i+1;
         $img_cadastra = "UPDATE anuncio_imagens SET  imoveis_img = './img/$nome' WHERE anuncioID = '$anuncioSelecionado' AND imagemID = '$i' AND usuarioID = $usuarioLogin";
-        $i-1;
+        $i= $i-1;
         try
         {
             $img_concluido = $conexao->prepare($img_cadastra);
