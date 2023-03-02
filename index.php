@@ -8,6 +8,7 @@ if (isset($_GET['search'])) {
 }
 
 $anuncioID = 0;
+$imgID = 0;
 $sqlRequest = ("SELECT * FROM anuncios $search");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
 $pesquisaAnuncios->execute();
@@ -100,7 +101,7 @@ $pesquisaAnuncios->execute();
 
       <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
         <?php $anuncioID = $linha->anuncioID;
-        $sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE anuncioID = $anuncioID");
+        $sqlRequesImg = ("SELECT * from anuncio_imagens WHERE anuncioID = $anuncioID");
         $sqlResquestImg = $conexao->prepare($sqlRequesImg);
         $sqlResquestImg->execute();
         ?>
@@ -112,13 +113,15 @@ $pesquisaAnuncios->execute();
               <div class="swiper-wrapper">
                 <!-- Slides -->
                 <?php while ($linha2 = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?>
+                  <?php $imgID = $linha2->imagemID ?>
                   <div class="swiper-slide">
                     <div class="d-flex">
                       <i class="fa-regular fa-heart"></i>
 
 
-
+                      <input type="hidden" value="<?php echo $imgID ?>">
                       <img src="<?php echo $linha2->imoveis_img; ?>" class="card-img-top" alt="..." />
+
                     </div>
 
                   </div>

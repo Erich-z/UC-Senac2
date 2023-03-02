@@ -2,6 +2,7 @@
 include('../db/conexao.php');
 include('../db/verificaSS.php');
 $anuncioID = 0;
+$imgID = 0;
 $usuarioLogin = $_SESSION['id'];
 $sqlRequest = ("SELECT * FROM anuncios where ANusuarioID = $usuarioLogin");
 $pesquisaAnuncios = $conexao->prepare($sqlRequest);
@@ -62,14 +63,14 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
         <div class="text-center">
             <h4 class="mb-2 p-3 ">Deseja anunciar seu imovel</br> totalmente de graça?</h4>
             <button type="button" class="btn btn-primary border-0" style="background-color: #5AC1FB; width: 18rem;">
-            <a href="./cadastroimv.php" style="text-decoration: none !important; color: black;">Anunciar
-                imovel</a></button>
+                <a href="./cadastroimv.php" style="text-decoration: none !important; color: black;">Anunciar
+                    imovel</a></button>
         </div>
 
         <div class="row gy-3 mt-2 home-page d-flex">
             <?php while ($linha = $pesquisaAnuncios->fetch(PDO::FETCH_OBJ)) { ?>
                 <?php $anuncioID = $linha->anuncioID;
-                $sqlRequesImg = ("SELECT imoveis_img from anuncio_imagens WHERE anuncioID = $anuncioID");
+                $sqlRequesImg = ("SELECT * from anuncio_imagens WHERE anuncioID = $anuncioID");
                 $sqlResquestImg = $conexao->prepare($sqlRequesImg);
                 $sqlResquestImg->execute();
                 ?>
@@ -80,9 +81,10 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
                                 <?php while ($linha2 = $sqlResquestImg->fetch(PDO::FETCH_OBJ)) { ?>
+                                    <?php $imgID = $linha2->imagemID ?>
                                     <div class="swiper-slide">
                                         <div class="d-flex">
-
+                                            <input type="hidden" name="codigoim[]" value="<?php echo $imgID ?>">
                                             <img src=".<?php echo $linha2->imoveis_img; ?>" class="card-img-top" alt="..." />
                                         </div>
                                     </div>
@@ -108,7 +110,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
                                 <a href="#"></a>
                                 <button type="button" class="btn btn-primary btn-floating"><i class="fa-solid fa-pen-to-square"></i></button>
 
-                                <button type="button" id="<?php echo $anuncioID?>" class="btn btn-primary btn-floating delete-card-buttton" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></button>
+                                <button type="button" id="<?php echo $anuncioID ?>" class="btn btn-primary btn-floating delete-card-buttton" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></button>
 
                                 <?php
 
@@ -159,7 +161,7 @@ $perfilUsuario = $perfilselecionad->fetch(PDO::FETCH_OBJ);
     <div class="tab">
         <i class="fas fa-search"></i>
         <i class="fas fa-heart"></i>
-       <a href="../index.php"> <i class="fas fa-user"></i></a>
+        <a href="../index.php"> <i class="fas fa-user"></i></a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/swiper.js"></script>
