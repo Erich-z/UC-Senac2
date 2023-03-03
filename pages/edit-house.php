@@ -20,7 +20,7 @@ $imoveisCozinha = addslashes($_POST['cozinhaimov']);
 $imoveisDiferencial	 = addslashes($_POST['difimov']);
 $imoveisDiaria = addslashes($_POST['precoimov']);
 $imageids = ($_POST['imageid']);
-print_r($imageids);
+//print_r($imageids);
 
 $editHouseUp = $conexao->prepare("UPDATE anuncios SET imoveisDiaria = :imoveisDiaria,
                                   imoveisDescricao = :imoveisDescricao, imoveisCep = :imoveisCep,
