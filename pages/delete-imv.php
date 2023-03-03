@@ -8,18 +8,19 @@
    
    
   
-   
+   $sqlDel3 = "DELETE FROM anuncio_comentarios where anuncioID = $id";
     $sqlDel = "DELETE FROM anuncio_imagens where anuncioID = $id";
     $sqlDel2 = "DELETE FROM anuncios where anuncioID = $id";
-    $sqlDel3 = "DELETE FROM anuncio_comentarios where anuncioID = $id";
+    
   
     try {
+        $sqlCadS3 = $conexao->prepare($sqlDel3);
+        $sqlCadS3->execute();
         $sqlCadS = $conexao->prepare($sqlDel);
         $sqlCadS->execute();
         $sqlCadS2 = $conexao->prepare($sqlDel2);
         $sqlCadS2->execute();
-        $sqlCadS3 = $conexao->prepare($sqlDel3);
-        $sqlCadS3->execute();
+
         header('location: user-profile.php');
     } catch (PDOException $erroFav) {
       print "<script>
