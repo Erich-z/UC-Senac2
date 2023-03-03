@@ -179,46 +179,51 @@ $data2 = date("H:i");
       <div class="carousel-inner py-4">
         <!-- Single item -->
         <div class="carousel-item active">
-
-          <div class="container">
-
-            <div class="row pb-4">
-
-              <?php
+        <div class="container">
+        <div class="row pb-4">
+        <?php
+              $count = 0;
               $selectComentario = ("SELECT * FROM anuncio_comentarios where anuncioID = $id");
               $selectComentario2 = $conexao->prepare($selectComentario);
-              $selectComentario2->execute();
+              $selectComentario2->execute(); 
+              
+              
+               
               while ($linhaComentario = $selectComentario2->fetch(PDO::FETCH_OBJ)) {
-
-
-
                 $select_Usuario = ("SELECT * FROM usuario where usuarioID = $linhaComentario->LCusuarioID");
-                $select_Usuario2 = $conexao->prepare($select_Usuario);
-                $select_Usuario2->execute();
-                $linha_usuario = $select_Usuario2->fetch(PDO::FETCH_OBJ);
-
-
-              ?>
-                <div class="col-lg-4 d-none d-lg-block">
-                  <img class="rounded-circle shadow-1-strong mb-4" src=".<?php echo $linha_usuario->usuario_foto; ?>" alt="avatar" style="width: 150px;" />
-                  <h5 class="mb-3"> <?php echo $linha_usuario->usuarioNome; ?></h5>
-                  <p class="card-text">
-                    <small class="text-muted"> <?php echo $linhaComentario->comentatariodata; ?></small>
-                  </p>
-                  <p class="text-muted">
-                    <i class="fas fa-quote-left pe-2"></i>
-                    <?php echo $linhaComentario->comentarioDescricao; ?>
-                  </p>
-                  <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li><i class="fas fa-star fa-sm"></i></li>
-                    <li>
-                      <i class="fas fa-star-half-alt fa-sm"></i>
-                    </li>
-                  </ul>
-                </div>
+              $select_Usuario2 = $conexao->prepare($select_Usuario);
+              $select_Usuario2->execute();
+              $linha_usuario = $select_Usuario2->fetch(PDO::FETCH_OBJ);
+                $count = $count + 1;
+                if($count == 4 ) { ?>
+                 </div>
+                 </div>
+                 </div>
+                  <div class="carousel-item active">
+                  <div class="container">
+                  <div class="row pb-4">
+                    <?php $count = 0; 
+                 } ?> 
+                 <div class="col-lg-4 d-none d-lg-block">
+                        <img class="rounded-circle shadow-1-strong mb-4" src=".<?php echo $linha_usuario->usuario_foto; ?>" alt="avatar" style="width: 150px;" />
+                        <h5 class="mb-3"> <?php echo $linha_usuario->usuarioNome; ?></h5>
+                        <p class="card-text">
+                          <small class="text-muted"> <?php echo $linhaComentario->comentatariodata; ?></small>
+                        </p>
+                        <p class="text-muted">
+                          <i class="fas fa-quote-left pe-2"></i>
+                          <?php echo $linhaComentario->comentarioDescricao; ?>
+                        </p>
+                        <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                          <li><i class="fas fa-star fa-sm"></i></li>
+                          <li><i class="fas fa-star fa-sm"></i></li>
+                          <li><i class="fas fa-star fa-sm"></i></li>
+                          <li><i class="fas fa-star fa-sm"></i></li>
+                          <li>
+                            <i class="fas fa-star-half-alt fa-sm"></i>
+                          </li>
+                        </ul>
+                      </div>
 
               <?php
               }
@@ -231,13 +236,15 @@ $data2 = date("H:i");
 
 
 
-            </div>
-          </div>
-        </div>
+            
+          
+        
 
-
+              
 
       </div>
+
+      
       <!-- Inner -->
     </div>
     </div>
