@@ -37,7 +37,7 @@ $casaOpen = $conexao->prepare($cadastrar_Casa);
 $casaOpen->execute();
 $_SESSION['idanuncio'] = $conexao->lastInsertId();
 
-echo $_SESSION['idanuncio'];
+
 
 header("Location:cadastroimvphoto.php");
 /*$selectUsuario = ("SELECT * from usuario where usuarioID = $usuarioLogin");
