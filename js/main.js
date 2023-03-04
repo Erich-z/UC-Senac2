@@ -25,7 +25,17 @@ const inputTxtCPF = document.querySelector("[name=txtCPF]")
 const checkNull = document.querySelectorAll(".check-null")
 const inputTelefone = document.querySelector('[name=txtTelefone]')
 const inputxtValueDiaria = document.querySelector('[name=txtDiaria]')
+const maskMoney = document.querySelectorAll('.money')
 
+
+
+     maskMoney.forEach(money => {
+      const numero = parseFloat(money.innerHTML).toLocaleString('pt-BR',{ style: 'currency', currency: 'BRL' });
+
+      money.innerHTML = numero
+     })
+    // maskMoney.innerHtml = 'numero';
+    // console.log(maskMoney.innerHTML = 'oi')
 
 VMasker(inputxtValueDiaria).maskMoney({
   precision: 2,
