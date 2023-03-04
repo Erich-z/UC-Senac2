@@ -29,11 +29,11 @@ const maskMoney = document.querySelectorAll('.money')
 
 
 
-     maskMoney.forEach(money => {
-      const numero = parseFloat(money.innerHTML).toLocaleString('pt-BR',{ style: 'currency', currency: 'BRL' });
+maskMoney.forEach(money => {
+  const numero = parseFloat(money.innerHTML).toLocaleString('pt-BR',{ style: 'currency', currency: 'BRL' });
 
-      money.innerHTML = numero
-     })
+  money.innerHTML = numero
+ })
     // maskMoney.innerHtml = 'numero';
     // console.log(maskMoney.innerHTML = 'oi')
 
